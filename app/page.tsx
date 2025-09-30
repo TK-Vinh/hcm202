@@ -1,110 +1,66 @@
 'use client'
 
 import { BlogCard } from '@/components/blog-card'
+import { RoadmapTimeline } from '@/components/roadmap-timeline'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/language-context'
 import { blogData } from '@/data/blog-data'
-import {
-    ArrowRight,
-    BookOpen,
-    Brain,
-    Globe,
-    Sparkles,
-} from 'lucide-react'
+import { roadmapEntries } from '@/data/hcm-roadmap'
+import { ArrowRight, BookOpen, Brain, Globe, Heart } from 'lucide-react'
 import Link from 'next/link'
 
 // Convert blog data to array format for homepage
-const blogs = Object.values(blogData)
-    .slice(0, 3)
-    .map((blog) => ({
-        id: blog.id,
-        section: blog.section,
-        title: blog.title,
-        excerpt: blog.excerpt,
-        author: blog.author,
-        date: blog.date,
-        readTime: blog.readTime,
-        image: blog.image,
-        originalLanguage: blog.originalLanguage,
-    }))
+const blogList = Object.values(blogData)
+
+const blogs = blogList.slice(0, 3).map((blog) => ({
+    id: blog.id,
+    section: blog.section,
+    title: blog.title,
+    excerpt: blog.excerpt,
+    author: blog.author,
+    date: blog.date,
+    readTime: blog.readTime,
+    image: blog.image,
+    originalLanguage: blog.originalLanguage,
+}))
 
 export default function HomePage() {
     const { t } = useLanguage()
+
+    const totalArticles = blogList.length
+    const totalQuizQuestions = blogList.reduce((sum, blog) => {
+        const questions = blog.quiz?.vietnamese?.length ?? 0
+        return sum + questions
+    }, 0)
 
     const chapterArticleCounts = Object.values(blogData).reduce<
         Record<string, number>
     >((acc, blog) => {
         const segments = blog.section.split('.')
-        const chapterId = segments.slice(0, 2).join('.') || blog.section
+        const chapterId = segments[0] || blog.section
         acc[chapterId] = (acc[chapterId] || 0) + 1
         return acc
     }, {})
 
     const chapterCards = [
         {
-            id: '4.1',
-            href: '/blogs?blog=4.1',
-            title: t('home.chapter41Title'),
-            description: t('home.chapter41Description'),
-            icon: BookOpen,
+            id: '6',
+            href: '/blogs?blog=6',
+            title: t('home.chapter6Title'),
+            description: t('home.chapter6Description'),
+            icon: Heart,
             gradient:
-                'from-purple-50 via-blue-50 to-indigo-50 dark:from-purple-900/20 dark:via-blue-900/20 dark:to-indigo-900/20',
-            border: 'border-purple-200/50 dark:border-purple-700/50',
-            floatingTop: 'from-purple-500/20 to-blue-500/20',
-            floatingBottom: 'from-indigo-500/15 to-purple-500/15',
-            iconGradient: 'from-purple-500 to-blue-600',
-            statsBg: 'bg-purple-100 dark:bg-purple-900/50',
-            statsText: 'text-purple-700 dark:text-purple-300',
-            titleHover:
-                'group-hover:text-purple-600 dark:group-hover:text-purple-400',
-            buttonHover:
-                'group-hover:bg-gradient-to-r group-hover:from-purple-500 group-hover:to-blue-600 group-hover:text-white group-hover:border-transparent',
-            buttonClasses:
-                'border-2 border-purple-200 text-purple-700 hover:text-white dark:border-purple-500 dark:text-purple-300',
-            shadow:
-                'hover:shadow-purple-500/25 dark:hover:shadow-purple-400/25',
-        },
-        {
-            id: '4.2',
-            href: '/blogs?blog=4.2',
-            title: t('home.chapter42Title'),
-            description: t('home.chapter42Description'),
-            icon: Globe,
-            gradient:
-                'from-emerald-50 via-green-50 to-teal-50 dark:from-emerald-900/20 dark:via-green-900/20 dark:to-teal-900/20',
-            border: 'border-emerald-200/50 dark:border-emerald-700/50',
-            floatingTop: 'from-emerald-500/20 to-teal-500/20',
-            floatingBottom: 'from-green-500/15 to-emerald-500/15',
-            iconGradient: 'from-emerald-500 to-teal-600',
-            statsBg: 'bg-emerald-100 dark:bg-emerald-900/50',
-            statsText: 'text-emerald-700 dark:text-emerald-300',
-            titleHover:
-                'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
-            buttonHover:
-                'group-hover:bg-gradient-to-r group-hover:from-emerald-500 group-hover:to-teal-600 group-hover:text-white group-hover:border-transparent',
-            buttonClasses:
-                'border-2 border-emerald-200 text-emerald-700 hover:text-white dark:border-emerald-500 dark:text-emerald-300',
-            shadow:
-                'hover:shadow-emerald-500/25 dark:hover:shadow-emerald-400/25',
-        },
-        {
-            id: '4.3',
-            href: '/blogs?blog=4.3',
-            title: t('home.chapter43Title'),
-            description: t('home.chapter43Description'),
-            icon: Sparkles,
-            gradient:
-                'from-rose-50 via-orange-50 to-yellow-50 dark:from-rose-900/20 dark:via-orange-900/20 dark:to-yellow-900/20',
+                'from-rose-50 via-amber-50 to-pink-50 dark:from-rose-900/20 dark:via-amber-900/20 dark:to-pink-900/20',
             border: 'border-rose-200/50 dark:border-rose-700/50',
-            floatingTop: 'from-rose-500/20 to-orange-500/20',
-            floatingBottom: 'from-yellow-500/15 to-rose-500/15',
-            iconGradient: 'from-rose-500 to-orange-500',
+            floatingTop: 'from-rose-500/25 to-amber-500/25',
+            floatingBottom: 'from-pink-500/20 to-rose-500/20',
+            iconGradient: 'from-rose-500 to-amber-500',
             statsBg: 'bg-rose-100 dark:bg-rose-900/50',
             statsText: 'text-rose-700 dark:text-rose-300',
             titleHover:
                 'group-hover:text-rose-600 dark:group-hover:text-rose-400',
             buttonHover:
-                'group-hover:bg-gradient-to-r group-hover:from-rose-500 group-hover:to-orange-500 group-hover:text-white group-hover:border-transparent',
+                'group-hover:bg-gradient-to-r group-hover:from-rose-500 group-hover:to-amber-500 group-hover:text-white group-hover:border-transparent',
             buttonClasses:
                 'border-2 border-rose-200 text-rose-700 hover:text-white dark:border-rose-500 dark:text-rose-300',
             shadow: 'hover:shadow-rose-500/25 dark:hover:shadow-rose-400/25',
@@ -173,7 +129,9 @@ export default function HomePage() {
                     <div className="flex justify-center space-x-8 text-sm text-muted-foreground animate-fade-in-up delay-800">
                         <div className="flex items-center group cursor-pointer">
                             <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
-                            <span className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">5+ {t('home.articlesCount')}</span>
+                            <span className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                                {totalArticles} {t('home.articlesCount')}
+                            </span>
                         </div>
                         <div className="flex items-center group cursor-pointer">
                             <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
@@ -186,6 +144,8 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
+
+            <RoadmapTimeline entries={roadmapEntries} />
 
             {/* Blogs Overview */}
             <section className="mt-20">
@@ -318,7 +278,7 @@ export default function HomePage() {
                                 <BookOpen className="h-12 w-12 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-300" />
                             </div>
                             <h3 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
-                                5+
+                                {totalArticles}
                             </h3>
                             <p className="text-muted-foreground text-lg font-medium">
                                 {t('home.articlesCount')}
@@ -348,7 +308,7 @@ export default function HomePage() {
                                 <Brain className="h-12 w-12 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
                             </div>
                             <h3 className="text-5xl font-bold bg-gradient-to-r from-emerald-600 to-teal-800 dark:from-emerald-400 dark:to-teal-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
-                                20+
+                                {totalQuizQuestions}
                             </h3>
                             <p className="text-muted-foreground text-lg font-medium">
                                 {t('home.quizQuestions')}

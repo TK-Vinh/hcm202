@@ -13,13 +13,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useLanguage } from '@/contexts/language-context'
+import { use, useMemo } from 'react'
 
 interface QuizPageProps {
-    params: { chapterId: string }
+    params: Promise<{ chapterId: string }> | { chapterId: string }
 }
 
 export default function QuizChapterPage({ params }: QuizPageProps) {
-    const { chapterId } = params
+    const paramsPromise = useMemo(
+        () => ('then' in params ? params : Promise.resolve(params)),
+        [params],
+    )
+
+    const { chapterId } = use(paramsPromise)
     const { t, getLocalizedContent, currentLanguage } = useLanguage()
 
     const typedChapterId = chapterId as ChapterId

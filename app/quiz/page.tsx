@@ -5,12 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useLanguage } from '@/contexts/language-context'
 import { philosophyBlogs, type ChapterId } from '@/data/philosophy-chapters'
-import {
-    BookOpen,
-    Building2,
-    Scale,
-    ArrowRight,
-} from 'lucide-react'
+import { ArrowRight, Heart } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 
@@ -54,51 +49,19 @@ const statusColorMap: Record<QuizStatus, string> = {
 
 const chapterCards: ChapterCard[] = [
     {
-        chapterId: '4.1',
-        icon: BookOpen,
+        chapterId: '6',
+        icon: Heart,
         gradient:
-            'from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20',
-        border: 'border-purple-200 dark:border-purple-800',
-        accent: 'bg-purple-500/10',
-        iconBg: 'bg-purple-500',
-        buttonHover: 'group-hover:bg-purple-500 group-hover:text-white',
+            'from-rose-50 to-amber-50 dark:from-rose-900/20 dark:to-amber-900/20',
+        border: 'border-rose-200 dark:border-rose-800',
+        accent: 'bg-rose-500/10',
+        iconBg: 'bg-rose-500',
+        buttonHover: 'group-hover:bg-rose-500 group-hover:text-white',
         description: {
             vietnamese:
-                'Ôn tập khái niệm dân chủ, tiến trình hình thành và đặc trưng của dân chủ xã hội chủ nghĩa.',
+                'Ôn tập hệ chuẩn đạo đức Hồ Chí Minh, bảng so sánh đạo đức cách mạng và ý nghĩa với công tác cán bộ.',
             english:
-                'Review the foundations of democracy, its historical development, and the features of socialist democracy.',
-        },
-    },
-    {
-        chapterId: '4.2',
-        icon: Building2,
-        gradient:
-            'from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20',
-        border: 'border-emerald-200 dark:border-emerald-800',
-        accent: 'bg-emerald-500/10',
-        iconBg: 'bg-emerald-500',
-        buttonHover: 'group-hover:bg-emerald-500 group-hover:text-white',
-        description: {
-            vietnamese:
-                'Tổng hợp kiến thức về sự ra đời, bản chất, chức năng và vai trò của nhà nước xã hội chủ nghĩa.',
-            english:
-                'Consolidate knowledge about the emergence, nature, functions, and role of the socialist state.',
-        },
-    },
-    {
-        chapterId: '4.3',
-        icon: Scale,
-        gradient:
-            'from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20',
-        border: 'border-amber-200 dark:border-amber-800',
-        accent: 'bg-amber-500/10',
-        iconBg: 'bg-amber-500',
-        buttonHover: 'group-hover:bg-amber-500 group-hover:text-white',
-        description: {
-            vietnamese:
-                'Khám phá dân chủ xã hội chủ nghĩa và nhà nước pháp quyền xã hội chủ nghĩa trong thực tiễn Việt Nam hiện nay.',
-            english:
-                'Explore socialist democracy and the socialist rule-of-law state in contemporary Vietnam.',
+                "Revisit Hồ Chí Minh's ethical standards, compare revolutionary and ordinary morality, and link them to cadre development.",
         },
     },
 ]
