@@ -1,9 +1,11 @@
 'use client'
 
 import { BlogCard } from '@/components/blog-card'
+import { RoadmapTimeline } from '@/components/roadmap-timeline'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/language-context'
 import { blogData } from '@/data/blog-data'
+import { roadmapEntries } from '@/data/hcm-roadmap'
 import { ArrowRight, BookOpen, Brain, Globe, Heart } from 'lucide-react'
 import Link from 'next/link'
 
@@ -142,6 +144,8 @@ export default function HomePage() {
                     </div>
                 </div>
             </section>
+
+            <RoadmapTimeline entries={roadmapEntries} />
 
             {/* Blogs Overview */}
             <section className="mt-20">

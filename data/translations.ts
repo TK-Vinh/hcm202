@@ -23,6 +23,26 @@ export const translations = {
     },
     readBlog: { vietnamese: 'Nội dung', english: 'Contents' },
     takeQuiz: { vietnamese: 'Làm quiz', english: 'Take quiz' },
+    roadmapTitle: {
+      vietnamese: 'Cuộc đời & sự nghiệp của Hồ Chí Minh',
+      english: 'Life & career of Hồ Chí Minh',
+    },
+    roadmapDescription: {
+      vietnamese: 'Theo dõi hành trình từ tuổi thơ, ra đi tìm đường cứu nước đến di sản để lại cho dân tộc.',
+      english: 'Trace his journey from childhood and the overseas quest for liberation to the legacy he left the nation.',
+    },
+    roadmapHint: {
+      vietnamese: 'Chạm vào các mốc thời gian để xem sự kiện và đóng góp nổi bật.',
+      english: 'Tap each milestone to reveal the key events and contributions.',
+    },
+    roadmapEventLabel: {
+      vietnamese: 'Sự kiện / Hoạt động chính',
+      english: 'Key event / activity',
+    },
+    roadmapImpactLabel: {
+      vietnamese: 'Ý nghĩa / Đóng góp nổi bật',
+      english: 'Significance / key contribution',
+    },
     articlesCount: { vietnamese: 'Bài viết triết học', english: 'Philosophy articles' },
     languagesSupported: { vietnamese: 'Ngôn ngữ hỗ trợ', english: 'Languages supported' },
     quizQuestions: { vietnamese: 'Câu hỏi quiz', english: 'Quiz questions' },
