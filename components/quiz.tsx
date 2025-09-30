@@ -18,7 +18,7 @@ type QuizState = {
   currentQuestion: number
   selectedAnswer: string
   showResult: boolean
-  score: number
+  answers: (number | null)[]
 }
 
 interface QuizProps {
@@ -26,16 +26,17 @@ interface QuizProps {
   storageKey: string
 }
 
-const defaultState: QuizState = {
-  currentQuestion: 0,
-  selectedAnswer: "",
-  showResult: false,
-  score: 0,
-}
+const createDefaultAnswers = (length: number) =>
+  Array.from({ length }, () => null as number | null)
 
 export function Quiz({ questions, storageKey }: QuizProps) {
   const { t } = useLanguage()
-  const [state, setState] = useState<QuizState>(defaultState)
+  const [state, setState] = useState<QuizState>(() => ({
+    currentQuestion: 0,
+    selectedAnswer: "",
+    showResult: false,
+    answers: createDefaultAnswers(questions.length),
+  }))
 
   const hasHydrated = useRef(false)
   const skipNextStorageWrite = useRef(false)
@@ -86,6 +87,44 @@ export function Quiz({ questions, storageKey }: QuizProps) {
     }
   }, [])
 
+  const normalizeAnswers = useCallback(
+    (answers: unknown): (number | null)[] => {
+      const normalized = createDefaultAnswers(questions.length)
+
+      if (Array.isArray(answers)) {
+        answers.forEach((value, index) => {
+          if (index < normalized.length) {
+            normalized[index] =
+              typeof value === "number" && Number.isFinite(value)
+                ? value
+                : null
+          }
+        })
+      }
+
+      return normalized
+    },
+    [questions.length],
+  )
+
+  const computeScore = useCallback(
+    (answers: (number | null)[]) => {
+      return answers.reduce((total, answer, index) => {
+        if (answer === null) {
+          return total
+        }
+
+        const question = questions[index]
+        if (!question) {
+          return total
+        }
+
+        return question.correct === answer ? total + 1 : total
+      }, 0)
+    },
+    [questions],
+  )
+
   useEffect(() => {
     if (typeof window === "undefined") {
       return
@@ -95,14 +134,10 @@ export function Quiz({ questions, storageKey }: QuizProps) {
       const stored = window.localStorage.getItem(storageKeyName)
       if (stored) {
         const parsed = JSON.parse(stored) as Partial<
-          QuizState & { questionsLength: number }
+          QuizState & { questionsLength: number; score?: number }
         >
 
         if (parsed.questionsLength === questions.length) {
-          const sanitizedScore = Math.min(
-            Math.max(Number(parsed.score) || 0, 0),
-            questions.length,
-          )
           const sanitizedCurrentQuestion = Math.min(
             Math.max(Number(parsed.currentQuestion) || 0, 0),
             Math.max(questions.length - 1, 0),
@@ -110,16 +145,22 @@ export function Quiz({ questions, storageKey }: QuizProps) {
           const sanitizedShowResult = Boolean(parsed.showResult)
           const sanitizedSelectedAnswer =
             typeof parsed.selectedAnswer === "string" ? parsed.selectedAnswer : ""
+          const normalizedAnswers = normalizeAnswers(parsed.answers)
+
+          const effectiveCurrent = sanitizedShowResult
+            ? Math.max(questions.length - 1, 0)
+            : sanitizedCurrentQuestion
+          const fallbackSelected = normalizedAnswers[effectiveCurrent]
+          const hydratedSelected = sanitizedShowResult
+            ? ""
+            : sanitizedSelectedAnswer ||
+              (fallbackSelected !== null ? fallbackSelected.toString() : "")
 
           setState({
-            currentQuestion: sanitizedShowResult
-              ? Math.max(questions.length - 1, 0)
-              : sanitizedCurrentQuestion,
-            selectedAnswer: sanitizedShowResult ? "" : sanitizedSelectedAnswer,
+            currentQuestion: effectiveCurrent,
+            selectedAnswer: hydratedSelected,
             showResult: sanitizedShowResult,
-            score: sanitizedShowResult
-              ? sanitizedScore
-              : Math.min(sanitizedScore, sanitizedCurrentQuestion),
+            answers: normalizedAnswers,
           })
         } else {
           window.localStorage.removeItem(storageKeyName)
@@ -130,7 +171,7 @@ export function Quiz({ questions, storageKey }: QuizProps) {
     } finally {
       hasHydrated.current = true
     }
-  }, [questions.length, storageKeyName])
+  }, [normalizeAnswers, questions.length, storageKeyName])
 
   useEffect(() => {
     if (typeof window === "undefined" || !hasHydrated.current) {
@@ -144,10 +185,11 @@ export function Quiz({ questions, storageKey }: QuizProps) {
 
     const payload = {
       ...state,
+      score: computeScore(state.answers),
       questionsLength: questions.length,
     }
     window.localStorage.setItem(storageKeyName, JSON.stringify(payload))
-  }, [questions.length, state, storageKeyName])
+  }, [computeScore, questions.length, state, storageKeyName])
 
   useEffect(() => {
     if (!state.showResult) {
@@ -166,6 +208,46 @@ export function Quiz({ questions, storageKey }: QuizProps) {
 
     previousShowResult.current = state.showResult
   }, [ensureBgmPlaying, state.showResult])
+
+  useEffect(() => {
+    setState((prev) => {
+      const normalizedAnswers = normalizeAnswers(prev.answers)
+      const safeCurrent = Math.min(
+        prev.currentQuestion,
+        Math.max(questions.length - 1, 0),
+      )
+
+      const updatedSelected = prev.showResult
+        ? ""
+        : (() => {
+            const existing = normalizedAnswers[safeCurrent]
+            return existing !== null ? existing.toString() : prev.selectedAnswer
+          })()
+
+      const nextShowResult =
+        prev.showResult && questions.length > 0 ? prev.showResult : false
+
+      const answersUnchanged =
+        normalizedAnswers.length === prev.answers.length &&
+        normalizedAnswers.every((value, index) => value === prev.answers[index])
+
+      if (
+        answersUnchanged &&
+        safeCurrent === prev.currentQuestion &&
+        updatedSelected === prev.selectedAnswer &&
+        nextShowResult === prev.showResult
+      ) {
+        return prev
+      }
+
+      return {
+        currentQuestion: safeCurrent,
+        selectedAnswer: updatedSelected,
+        showResult: nextShowResult,
+        answers: normalizedAnswers,
+      }
+    })
+  }, [normalizeAnswers, questions.length])
 
   const getLocalizedText = (path: string) => {
     return t(`quiz.${path}`)
@@ -192,24 +274,37 @@ export function Quiz({ questions, storageKey }: QuizProps) {
       }
 
       const currentIndex = Math.min(prev.currentQuestion, Math.max(questions.length - 1, 0))
-      const isCorrect =
-        questions[currentIndex] && questions[currentIndex].correct === answerIndex
+      const updatedAnswers = normalizeAnswers(prev.answers)
+      if (currentIndex < updatedAnswers.length) {
+        updatedAnswers[currentIndex] = answerIndex
+      }
 
-      const updatedScore = prev.score + (isCorrect ? 1 : 0)
       const isLastQuestion = currentIndex >= questions.length - 1
+      const nextIndex = isLastQuestion ? currentIndex : currentIndex + 1
+      const nextSelected = isLastQuestion
+        ? ""
+        : (() => {
+            const stored = updatedAnswers[nextIndex]
+            return stored !== null ? stored.toString() : ""
+          })()
 
       return {
-        currentQuestion: isLastQuestion ? currentIndex : currentIndex + 1,
-        selectedAnswer: "",
+        currentQuestion: nextIndex,
+        selectedAnswer: nextSelected,
         showResult: isLastQuestion,
-        score: Math.min(updatedScore, questions.length),
+        answers: updatedAnswers,
       }
     })
   }
 
   const resetQuiz = () => {
     skipNextStorageWrite.current = true
-    setState(defaultState)
+    setState({
+      currentQuestion: 0,
+      selectedAnswer: "",
+      showResult: false,
+      answers: createDefaultAnswers(questions.length),
+    })
     if (typeof window !== "undefined") {
       window.localStorage.removeItem(storageKeyName)
     }
@@ -221,8 +316,30 @@ export function Quiz({ questions, storageKey }: QuizProps) {
     ensureBgmPlaying()
   }
 
+  const handlePreviousQuestion = () => {
+    ensureBgmPlaying()
+    setState((prev) => {
+      if (prev.currentQuestion <= 0) {
+        return prev
+      }
+
+      const previousIndex = prev.currentQuestion - 1
+      const normalizedAnswers = normalizeAnswers(prev.answers)
+
+      const previousAnswer = normalizedAnswers[previousIndex]
+
+      return {
+        currentQuestion: previousIndex,
+        selectedAnswer: previousAnswer !== null ? previousAnswer.toString() : "",
+        showResult: false,
+        answers: normalizedAnswers,
+      }
+    })
+  }
+
+  const score = useMemo(() => computeScore(state.answers), [computeScore, state.answers])
   if (state.showResult) {
-    const correctCount = state.score
+    const correctCount = score
     const incorrectCount = Math.max(questions.length - correctCount, 0)
 
     return (
@@ -295,15 +412,27 @@ export function Quiz({ questions, storageKey }: QuizProps) {
           </RadioGroup>
         </div>
 
-        <Button
-          onClick={handleSubmitAnswer}
-          disabled={state.selectedAnswer === ""}
-          className="w-full"
-        >
-          {currentIndex < questions.length - 1
-            ? getLocalizedText("nextQuestion")
-            : getLocalizedText("complete")}
-        </Button>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={handlePreviousQuestion}
+            disabled={currentIndex === 0}
+            className="sm:w-1/2"
+          >
+            {getLocalizedText("previousQuestion")}
+          </Button>
+          <Button
+            type="button"
+            onClick={handleSubmitAnswer}
+            disabled={state.selectedAnswer === ""}
+            className="sm:w-1/2"
+          >
+            {currentIndex < questions.length - 1
+              ? getLocalizedText("nextQuestion")
+              : getLocalizedText("complete")}
+          </Button>
+        </div>
       </CardContent>
     </Card>
   )

@@ -13,13 +13,19 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useLanguage } from '@/contexts/language-context'
+import { use, useMemo } from 'react'
 
 interface QuizPageProps {
-    params: { chapterId: string }
+    params: Promise<{ chapterId: string }> | { chapterId: string }
 }
 
 export default function QuizChapterPage({ params }: QuizPageProps) {
-    const { chapterId } = params
+    const paramsPromise = useMemo(
+        () => ('then' in params ? params : Promise.resolve(params)),
+        [params],
+    )
+
+    const { chapterId } = use(paramsPromise)
     const { t, getLocalizedContent, currentLanguage } = useLanguage()
 
     const typedChapterId = chapterId as ChapterId
@@ -41,6 +47,12 @@ export default function QuizChapterPage({ params }: QuizPageProps) {
     const combinedQuizQuestions = chapterBlogs.flatMap(
         (blog) => blog.quiz?.[currentLanguage] || [],
     )
+
+    const chunkSize = 10
+    const quizChunks: typeof combinedQuizQuestions[] = []
+    for (let i = 0; i < combinedQuizQuestions.length; i += chunkSize) {
+        quizChunks.push(combinedQuizQuestions.slice(i, i + chunkSize))
+    }
 
     if (combinedQuizQuestions.length === 0) {
         return (
@@ -67,7 +79,19 @@ export default function QuizChapterPage({ params }: QuizPageProps) {
             <h1 className="text-3xl font-bold mb-8 text-center">
                 {`${t('quiz.quizForChapter')} ${chapterId} – ${chapterTitleLocalized}`}
             </h1>
-            <Quiz questions={combinedQuizQuestions} storageKey={chapterId} />
+            <div className="space-y-12">
+                {quizChunks.map((questions, index) => (
+                    <section key={`${chapterId}-part-${index + 1}`}>
+                        <h2 className="text-2xl font-semibold mb-4 text-center">
+                            {`${t('quiz.partLabel')} ${index + 1}`}
+                        </h2>
+                        <Quiz
+                            questions={questions}
+                            storageKey={`${chapterId}-part-${index + 1}`}
+                        />
+                    </section>
+                ))}
+            </div>
         </div>
     )
 }
