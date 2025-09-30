@@ -9,17 +9,17 @@ export const translations = {
 
   home: {
     exploreBlogs: {
-      vietnamese: 'Khám phá các chương triết học',
-      english: 'Explore philosophy chapters',
+      vietnamese: 'Khám phá chiều sâu Chương 6',
+      english: 'Explore the depth of Chapter 6',
     },
     title: { vietnamese: 'E-Learning', english: 'E-Learning' },
     subtitle: {
-      vietnamese: 'Khám phá thế giới triết học qua những bài viết sâu sắc và tương tác',
-      english: 'Explore the world of philosophy through in-depth and interactive articles',
+      vietnamese: 'Khám phá tư tưởng Hồ Chí Minh về văn hóa, đạo đức và con người',
+      english: "Explore Hồ Chí Minh's reflections on culture, ethics, and humanity",
     },
     heroDescription: {
-      vietnamese: 'Nền tảng học triết học Marxist với AI assistant, quiz tương tác và nội dung song ngữ',
-      english: 'Marxist philosophy learning platform with an AI assistant, interactive quizzes, and bilingual content',
+      vietnamese: 'Nền tảng học tập chuyên sâu về đạo đức cách mạng với trợ lý AI, bài viết song ngữ và quiz tương tác',
+      english: 'A focused hub on revolutionary ethics with an AI assistant, bilingual articles, and interactive quizzes',
     },
     readBlog: { vietnamese: 'Nội dung', english: 'Contents' },
     takeQuiz: { vietnamese: 'Làm quiz', english: 'Take quiz' },
@@ -35,36 +35,20 @@ export const translations = {
     weeklyUpdates: { vietnamese: 'Được cập nhật hàng tuần', english: 'Updated weekly' },
     languageSupport: { vietnamese: 'Vi, En', english: 'Vi, En' },
     interactiveQuiz: { vietnamese: 'Quiz tương tác', english: 'Interactive quiz' },
-    chapter41Title: {
-      vietnamese: 'Chương 4.1: Dân chủ và dân chủ xã hội chủ nghĩa',
-      english: 'Chapter 4.1: Democracy & Socialist Democracy',
+    chapter6Title: {
+      vietnamese: 'Chương 6: Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người',
+      english: "Chapter 6: Hồ Chí Minh's Thought on Culture, Ethics, and Humanity",
     },
-    chapter41Description: {
-      vietnamese: 'Tìm hiểu nguồn gốc, bản chất và giá trị của nền dân chủ xã hội chủ nghĩa.',
-      english: 'Discover the origins, nature, and values of socialist democracy.',
-    },
-    chapter42Title: {
-      vietnamese: 'Chương 4.2: Nhà nước xã hội chủ nghĩa',
-      english: 'Chapter 4.2: The Socialist State',
-    },
-    chapter42Description: {
-      vietnamese: 'Khám phá cấu trúc, chức năng và vai trò lịch sử của nhà nước xã hội chủ nghĩa.',
-      english: 'Explore the structure, functions, and historical role of the socialist state.',
-    },
-    chapter43Title: {
-      vietnamese: 'Chương 4.3: Dân chủ XHCN & Nhà nước pháp quyền ở Việt Nam',
-      english: 'Chapter 4.3: Socialist Democracy & Rule-of-Law State in Vietnam',
-    },
-    chapter43Description: {
-      vietnamese: 'Liên hệ thực tiễn Việt Nam trong xây dựng dân chủ và nhà nước pháp quyền XHCN.',
-      english: 'Connect Vietnam’s practice in building socialist democracy and a rule-of-law state.',
+    chapter6Description: {
+      vietnamese: 'Tìm hiểu đạo đức cách mạng, bảng so sánh chuẩn mực và liên hệ công tác cán bộ hiện nay.',
+      english: 'Study revolutionary ethics, comparative standards, and their relevance to today’s cadre work.',
     },
     explore: { vietnamese: 'Khám phá', english: 'Explore' },
     articles: { vietnamese: 'bài viết', english: 'articles' },
     viewAll: { vietnamese: 'Xem tất cả', english: 'View all' },
     featuredPostsDescription: {
-      vietnamese: 'Những bài viết triết học mới nhất và được yêu thích nhất',
-      english: 'Latest and most popular philosophy articles',
+      vietnamese: 'Bài viết chuyên sâu về đạo đức Hồ Chí Minh và thực tiễn vận dụng',
+      english: "In-depth writing on Hồ Chí Minh's ethics and its practical application",
     },
   },
 
@@ -151,8 +135,8 @@ export const translations = {
     publishedOn: { vietnamese: 'Xuất bản ngày', english: 'Published on' },
     allArticles: { vietnamese: 'Tất cả bài viết', english: 'All articles' },
     exploreCollection: {
-      vietnamese: 'Khám phá bộ sưu tập đầy đủ các bài viết của Chương 4',
-      english: 'Explore the full collection of Chapter 4 articles',
+      vietnamese: 'Khám phá toàn bộ nội dung của Chương 6',
+      english: 'Explore the complete Chapter 6 collection',
     },
     noArticlesFound: {
       vietnamese: 'Không tìm thấy bài viết nào',
@@ -276,12 +260,12 @@ export const translations = {
 
   blogPage: {
     heroTitle: {
-      vietnamese: 'Thư viện triết học Chương 4',
-      english: 'Chapter 4 philosophy library',
+      vietnamese: 'Thư viện triết học Chương 6',
+      english: 'Chapter 6 philosophy library',
     },
     heroDescription: {
-      vietnamese: 'Bộ sưu tập đầy đủ các bài viết về dân chủ và nhà nước xã hội chủ nghĩa.',
-      english: 'A complete collection of articles on socialist democracy and the socialist state.',
+      vietnamese: 'Bộ sưu tập nội dung về tư tưởng Hồ Chí Minh đối với đạo đức và con người.',
+      english: "A curated collection on Hồ Chí Minh's ethics and human development.",
     },
     filterAndSearch: {
       vietnamese: 'Lọc & tìm kiếm',
