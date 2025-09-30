@@ -123,6 +123,10 @@ export const translations = {
     retakeQuiz: { vietnamese: 'Làm lại Quiz', english: 'Retake quiz' },
     question: { vietnamese: 'Câu', english: 'Question' },
     nextQuestion: { vietnamese: 'Câu tiếp theo', english: 'Next question' },
+    previousQuestion: {
+      vietnamese: 'Quay lại câu trước',
+      english: 'Back to previous question',
+    },
     complete: { vietnamese: 'Hoàn thành', english: 'Complete' },
     noQuizAvailable: { vietnamese: 'Không có Quiz khả dụng', english: 'No quiz available' },
     noQuizQuestionsMessage: {
@@ -134,6 +138,7 @@ export const translations = {
       english: 'Back to quiz overview',
     },
     quizForChapter: { vietnamese: 'Quiz cho Chương', english: 'Quiz for Chapter' },
+    partLabel: { vietnamese: 'Phần', english: 'Part' },
   },
 
   chat: {

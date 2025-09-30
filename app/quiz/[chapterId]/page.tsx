@@ -48,6 +48,12 @@ export default function QuizChapterPage({ params }: QuizPageProps) {
         (blog) => blog.quiz?.[currentLanguage] || [],
     )
 
+    const chunkSize = 10
+    const quizChunks: typeof combinedQuizQuestions[] = []
+    for (let i = 0; i < combinedQuizQuestions.length; i += chunkSize) {
+        quizChunks.push(combinedQuizQuestions.slice(i, i + chunkSize))
+    }
+
     if (combinedQuizQuestions.length === 0) {
         return (
             <div className="container mx-auto px-4 py-8 max-w-4xl text-center">
@@ -73,7 +79,19 @@ export default function QuizChapterPage({ params }: QuizPageProps) {
             <h1 className="text-3xl font-bold mb-8 text-center">
                 {`${t('quiz.quizForChapter')} ${chapterId} – ${chapterTitleLocalized}`}
             </h1>
-            <Quiz questions={combinedQuizQuestions} storageKey={chapterId} />
+            <div className="space-y-12">
+                {quizChunks.map((questions, index) => (
+                    <section key={`${chapterId}-part-${index + 1}`}>
+                        <h2 className="text-2xl font-semibold mb-4 text-center">
+                            {`${t('quiz.partLabel')} ${index + 1}`}
+                        </h2>
+                        <Quiz
+                            questions={questions}
+                            storageKey={`${chapterId}-part-${index + 1}`}
+                        />
+                    </section>
+                ))}
+            </div>
         </div>
     )
 }
