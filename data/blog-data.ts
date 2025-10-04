@@ -13,7 +13,7 @@ export const blogData = {
 Chương 6: Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người
 
 1. Đạo đức là gốc, là nền tảng tinh thần của xã hội, của người cách mạng
-
+![Đạo đức](/assets/blog-images/content-images/6.1-1.jpeg)
 Đạo đức là nguồn nuôi dưỡng, phát triển con người
 - Hồ Chí Minh khẳng định: “Đạo đức là nguồn nuôi dưỡng và phát triển con người.” Hay “Đạo đức là gốc, là nền tảng, là sức mạnh, là tiêu chuẩn hàng đầu của người cách mạng”.
 - Đạo đức giống như chất dinh dưỡng nuôi lớn tâm hồn, phẩm chất, nhân cách mỗi người trong xã hội.
@@ -37,7 +37,7 @@ Chương 6: Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con ngư�
 - “Người cán bộ cách mạng phải có đạo đức cách mạng ... Mọi việc thành hay là bại, chủ chốt do cán bộ có thấm nhuần đạo đức cách mạng, hay là không.” (Người cán bộ cách mạng).
 - Đạo đức cách mạng là chỗ dựa giúp cho con người vững vàng trong mọi thử thách.
 - “Có đạo đức cách mạng thì khi gặp khó khăn, gian khổ, thất bại, cũng không sợ sệt, rụt rè, lùi bước... Khi gặp thuận lợi và thành công vẫn giữ tinh thần gian khổ, chất phác, khiêm tốn.” (Hồ Chí Minh: Toàn tập, Nxb Chính trị quốc gia, Hà Nội, 2011, t.11, tr.602-603).
-
+![Đạo đức](/assets/blog-images/content-images/6.1-2.jpg)
 Đạo đức phải thể hiện trong hành động, lấy hiệu quả thực tế làm thước đo
 - Đạo đức không chỉ nằm ở lời nói hay những nguyên tắc lý thuyết suông, mà phải thể hiện rõ trong hành động, trong kết quả phục vụ nhân dân.
 - Muốn đánh giá một người có đạo đức hay không, phải nhìn vào hiệu quả thực tế việc làm, cống hiến của họ. “Nói đi đôi với làm”, “lấy hiệu quả phục vụ nhân dân làm thước đo” là chuẩn mực cao nhất của đạo đức.
@@ -112,7 +112,7 @@ Unified human qualities
             vietnamese: '15 phút',
             english: '15 minutes',
         },
-        image: '/assets/blog-images/4.3.5-thumbnail.png',
+        image: '/assets/blog-images/content-images/6.1-thumb.jpg',
         originalLanguage: 'vietnamese' as const,
         quiz: {
             vietnamese: [
@@ -572,7 +572,7 @@ b) Cần, kiệm, liêm, chính, chí công vô tư
 - Chính là thẳng thắn, đứng đắn, không nịnh hót người trên, không khinh người dưới, thật thà, không dối trá. “Đối với mình – chớ tự kiêu, tự đại. Đối với người – chớ nịnh hót người trên. Chớ xem khinh người dưới.”
 - Chí công vô tư là hoàn toàn vì lợi ích chung, công bằng, công tâm, đặt lợi ích của Đảng, của nhân dân, của dân tộc lên trên hết; chống chủ nghĩa cá nhân. “Đem lòng chí công vô tư mà đối với người, với việc... Khi làm bất cứ việc gì cũng đừng nghĩ đến mình trước, khi hưởng thụ thì mình nên đi sau.”
 - Hồ Chí Minh ví bốn đức cần, kiệm, liêm, chính như bốn mùa của trời, bốn phương của đất; thiếu một đức thì không thành người.
-
+![Liêm](/assets/blog-images/content-images/6.2-1.jpg)
 c) Thương yêu con người, sống có tình nghĩa
 - Đây là phẩm chất đạo đức cao đẹp nhất, kết tinh truyền thống nhân nghĩa với chủ nghĩa nhân đạo cộng sản.
 - Đối tượng trước hết là những người nghèo khổ, bị mất quyền, bị áp bức bóc lột không phân biệt màu da, dân tộc.
@@ -580,7 +580,7 @@ c) Thương yêu con người, sống có tình nghĩa
 - Trong thực hành, phải đứng trên lập trường giai cấp công nhân, thể hiện trong các quan hệ hằng ngày bằng hành động cụ thể, thiết thực.
 - Yêu cầu: nghiêm khắc với mình; rộng rãi, độ lượng, giàu lòng vị tha với người; tôn trọng quyền con người, tạo điều kiện phát huy tài năng; nâng con người lên, kể cả người lầm lạc, không “dĩ hòa vi quý”, không hạ thấp hay vùi dập.
 - Hồ Chí Minh nhấn mạnh: “Hiểu chủ nghĩa Mác – Lênin là phải sống với nhau có tình có nghĩa... Nếu thuộc bao nhiêu sách mà không có tình có nghĩa thì sao gọi là hiểu.” Trong Di chúc, Người viết: “Đầu tiên là công việc đối với con người... Phải có tình đồng chí thương yêu lẫn nhau.”
-
+![Thương](/assets/blog-images/content-images/6.2-2.png)
 d) Tinh thần quốc tế trong sáng
 - Xuất phát từ bản chất giai cấp công nhân, mở rộng quan hệ vượt khỏi giới hạn quốc gia dân tộc.
 - Đó là sự tôn trọng, hiểu biết, thương yêu và đoàn kết với giai cấp vô sản toàn thế giới, với các dân tộc bị áp bức, với nhân dân tiến bộ khắp năm châu.
@@ -637,7 +637,7 @@ d) Pure international spirit
             vietnamese: '18 phút',
             english: '18 minutes',
         },
-        image: '/assets/blog-images/4.3.5-thumbnail.png',
+        image: '/assets/blog-images/content-images/6.2-thumb.jpg',
         originalLanguage: 'vietnamese' as const,
     },
     3: {
@@ -658,12 +658,13 @@ a) Nói đi đôi với làm, nêu gương về đạo đức
 - Hồ Chí Minh phê phán thói đạo đức giả: “Miệng thì nói dân chủ nhưng làm việc thì họ theo lối ‘quan’ chủ...”.
 - Người yêu cầu cán bộ phải làm gương về tinh thần, vật chất và văn hóa: “Trước hết mình phải làm gương...”. (Hồ Chí Minh: Toàn tập, t.4, tr.171).
 - Sự gương mẫu của cán bộ là phương pháp giáo dục đạo đức sâu sắc nhất; chuẩn mực chỉ có sức sống khi trở thành hành vi hằng ngày của mỗi người.
+![đi đôi với làm](/assets/blog-images/content-images/6.3-2.jfif)
 
 b) Xây đi đôi với chống
 - Xây là xây dựng giá trị, chuẩn mực đạo đức mới; chống là đấu tranh với biểu hiện suy thoái, cái xấu, cái ác.
 - Muốn xây phải chống, chống nhằm mục đích xây, lấy xây làm chính – khơi dậy ý thức tự giáo dục, tự trau dồi đạo đức.
 - Hồ Chí Minh chỉ rõ nguồn gốc của mọi tệ nạn là chủ nghĩa cá nhân. Trong bài “Nâng cao đạo đức cách mạng, quét sạch chủ nghĩa cá nhân” (1969), Người nhấn mạnh phải kiên quyết đấu tranh với chủ nghĩa cá nhân.
-
+![Xây đi với chống](/assets/blog-images/content-images/6.3-1.jpg)
 c) Tu dưỡng đạo đức suốt đời
 - Tu dưỡng đạo đức là việc làm suốt đời, lâu dài, kiên trì, thường xuyên, liên tục.
 - Đạo đức không tự nhiên có, phải được rèn luyện trong thực tiễn công việc và các quan hệ xã hội.
@@ -735,10 +736,11 @@ Practical relevance: shaping cadres’ character and safeguarding Party prestige
             vietnamese: '20 phút',
             english: '20 minutes',
         },
-        image: '/assets/blog-images/4.3.5-thumbnail.png',
+        image: '/assets/blog-images/content-images/6.3-thumb.jfif',
         originalLanguage: 'vietnamese' as const,
     },
 } as const
 
 export type BlogData = typeof blogData
 export type BlogId = keyof BlogData
+export type Language = 'vietnamese' | 'english'

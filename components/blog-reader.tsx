@@ -482,7 +482,7 @@ export function BlogReader({ blog }: BlogReaderProps) {
                                 },
                                 img: ({ node, ...props }) => (
                                     <img
-                                        className="mx-auto my-8 rounded-lg shadow-lg max-w-full h-auto"
+                                        className="mx-auto my-8 rounded-lg shadow-lg max-w-full h-[400px] object-contain"
                                         {...props}
                                     />
                                 ),
