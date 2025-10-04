@@ -1,6 +1,7 @@
 'use client'
 
 import { BlogCard } from '@/components/blog-card'
+import Quote from '@/components/quote'
 import { RoadmapTimeline } from '@/components/roadmap-timeline'
 import { Button } from '@/components/ui/button'
 import { useLanguage } from '@/contexts/language-context'
@@ -146,7 +147,7 @@ export default function HomePage() {
             </section>
 
             <RoadmapTimeline entries={roadmapEntries} />
-
+            <Quote />
             {/* Blogs Overview */}
             <section className="mt-20">
                 <div className="text-center mb-12 animate-fade-in-up">
