@@ -31,7 +31,7 @@ export const roadmapEntries: RoadmapEntry[] = [
                 'Sinh ra tại làng Kim Liên, xã Nam Liên, huyện Nam Đàn, tỉnh Nghệ An với tên khai sinh Nguyễn Sinh Cung. ![1890](/assets/roadmap-images/1890.jpg)'
                 ,
             english:
-                'Born in Kim Liên village, Nam Liên commune, Nam Đàn district, Nghệ An Province; birth name Nguyễn Sinh Cung.',
+                'Born in Kim Liên village, Nam Liên commune, Nam Đàn district, Nghệ An Province; birth name Nguyễn Sinh Cung. ![1890](/assets/roadmap-images/1890.jpg)',
         },
         significance: {
             vietnamese:
@@ -54,7 +54,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Bắt đầu dùng tên Nguyễn Tất Thành khi theo học tại Trường Quốc học Huế. ![1901](/assets/roadmap-images/1901.webp)',
             english:
-                'Adopted the name Nguyễn Tất Thành while studying at Quốc Học Huế.',
+                'Adopted the name Nguyễn Tất Thành while studying at Quốc Học Huế. ![1901](/assets/roadmap-images/1901.webp)',
         },
         significance: {
             vietnamese:
@@ -74,7 +74,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Rời cảng Nhà Rồng (Sài Gòn), lên tàu Đô đốc Latouche-Tréville với tên hiệu “Văn Ba”, bắt đầu hành trình bôn ba tìm đường cứu nước. ![1911](/assets/roadmap-images/1911.webp)',
             english:
-                'Left Nhà Rồng wharf (Saigon) aboard the Latouche-Tréville under the alias “Văn Ba,” beginning his quest abroad for national salvation.',
+                'Left Nhà Rồng wharf (Saigon) aboard the Latouche-Tréville under the alias “Văn Ba,” beginning his quest abroad for national salvation. ![1911](/assets/roadmap-images/1911.webp)',
         },
         significance: {
             vietnamese:
@@ -94,7 +94,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Làm việc, sinh sống tại Pháp, Anh, Mỹ, châu Phi, châu Á; tiếp xúc phong trào công nhân và phong trào giải phóng dân tộc. ![1911-1920](/assets/roadmap-images/1920.webp)',
             english:
-                'Worked and lived in France, Britain, the United States, Africa, and Asia, engaging with labour and anti-colonial movements.',
+                'Worked and lived in France, Britain, the United States, Africa, and Asia, engaging with labour and anti-colonial movements. ![1911-1920](/assets/roadmap-images/1920.webp)',
         },
         significance: {
             vietnamese:
@@ -114,7 +114,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Dưới tên Nguyễn Ái Quốc, gửi “Yêu sách của nhân dân An Nam” tới Hội nghị Versailles, yêu cầu quyền tự do, dân chủ cho Việt Nam. ![1919](/assets/roadmap-images/1919.webp)',
             english:
-                'As Nguyễn Ái Quốc, submitted the “Claims of the Annamite People” to the Versailles Conference, demanding freedom and democracy for Vietnam.',
+                'As Nguyễn Ái Quốc, submitted the “Claims of the Annamite People” to the Versailles Conference, demanding freedom and democracy for Vietnam. ![1919](/assets/roadmap-images/1919.webp)',
         },
         significance: {
             vietnamese:
@@ -134,7 +134,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Tham gia các tổ chức cộng sản tại Pháp, tiến tới chuẩn bị cho việc thành lập Đảng Cộng sản ở Việt Nam. ![1920-1930](/assets/roadmap-images/1920.webp)',
             english:
-                'Joined communist organisations in France and prepared for the creation of the Communist Party in Vietnam.',
+                'Joined communist organisations in France and prepared for the creation of the Communist Party in Vietnam. ![1920-1930](/assets/roadmap-images/1920.webp)',
         },
         significance: {
             vietnamese:
@@ -154,7 +154,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Chủ trì Hội nghị hợp nhất ba tổ chức cộng sản và thành lập Đảng Cộng sản Việt Nam tại Quảng Châu (Trung Quốc). ![1930](/assets/roadmap-images/1930.jpg)',
             english:
-                'Presided over the conference unifying three communist organisations to found the Communist Party of Vietnam in Guangzhou, China.',
+                'Presided over the conference unifying three communist organisations to found the Communist Party of Vietnam in Guangzhou, China. ![1930](/assets/roadmap-images/1930.jpg)',
         },
         significance: {
             vietnamese:
@@ -174,7 +174,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Bí mật về nước, đến Pắc Bó (Cao Bằng) để trực tiếp lãnh đạo phong trào Việt Minh. ![1941](/assets/roadmap-images/1941.jpg)',
             english:
-                'Secretly returned to Vietnam, arriving in Pác Bó (Cao Bằng) to directly lead the Việt Minh movement.',
+                'Secretly returned to Vietnam, arriving in Pác Bó (Cao Bằng) to directly lead the Việt Minh movement. ![1941](/assets/roadmap-images/1941.jpg)',
         },
         significance: {
             vietnamese:
@@ -192,7 +192,8 @@ export const roadmapEntries: RoadmapEntry[] = [
         period: { vietnamese: '19/8/1945', english: '19 August 1945' },
         event: {
             vietnamese: 'Tổng khởi nghĩa giành chính quyền ở Hà Nội và trên cả nước. ![1945](/assets/roadmap-images/1945.jpg)',
-            english: 'Led the general uprising to seize power in Hà Nội and nationwide.',
+            english:
+                'Led the general uprising to seize power in Hà Nội and nationwide. ![1945](/assets/roadmap-images/1945.jpg)',
         },
         significance: {
             vietnamese:
@@ -212,7 +213,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa. ![2-9-1945](/assets/roadmap-images/2-9-1945.jpg)',
             english:
-                'Proclaimed the Declaration of Independence, founding the Democratic Republic of Vietnam.',
+                'Proclaimed the Declaration of Independence, founding the Democratic Republic of Vietnam. ![2-9-1945](/assets/roadmap-images/2-9-1945.jpg)',
         },
         significance: {
             vietnamese:
@@ -232,7 +233,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Quốc hội khóa I bầu Hồ Chí Minh làm Chủ tịch nước và đảm nhiệm vai trò Thủ tướng giai đoạn đầu. ![1946](/assets/roadmap-images/1946.jpg)',
             english:
-                'The First National Assembly elected him President; he also served as Prime Minister in the early years.',
+                'The First National Assembly elected him President; he also served as Prime Minister in the early years. ![1946](/assets/roadmap-images/1946.jpg)',
         },
         significance: {
             vietnamese:
@@ -252,7 +253,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Lãnh đạo cuộc kháng chiến toàn quốc chống thực dân Pháp, đỉnh cao là chiến thắng Điện Biên Phủ và Hiệp định Genève. ![1946-1954](/assets/roadmap-images/1946-1954.jpg)',
             english:
-                'Led the nationwide resistance against French colonialism, culminating in Điện Biên Phủ victory and the Geneva Accords.',
+                'Led the nationwide resistance against French colonialism, culminating in Điện Biên Phủ victory and the Geneva Accords. ![1946-1954](/assets/roadmap-images/1946-1954.jpg)',
         },
         significance: {
             vietnamese:
@@ -272,7 +273,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Miền Bắc tiến hành cách mạng xã hội chủ nghĩa: cải cách ruộng đất, hợp tác hóa nông nghiệp, xây dựng công nghiệp. ![1955-1960](/assets/roadmap-images/1955-1960.jpg)',
             english:
-                'The North advanced socialist transformation: land reform, agricultural collectivisation, and industrial development.',
+                'The North advanced socialist transformation: land reform, agricultural collectivisation, and industrial development. ![1955-1960](/assets/roadmap-images/1955-1960.jpg)',
         },
         significance: {
             vietnamese:
@@ -292,7 +293,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Đại hội lần II của Đảng bầu Hồ Chí Minh làm Chủ tịch Ban Chấp hành Trung ương. ![1951](/assets/roadmap-images/1951.jpg)',
             english:
-                'The Party’s Second Congress elected him Chairman of the Central Committee.',
+                'The Party’s Second Congress elected him Chairman of the Central Committee. ![1951](/assets/roadmap-images/1951.jpg)',
         },
         significance: {
             vietnamese:
@@ -312,7 +313,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Đại hội lần III tiếp tục tín nhiệm ông vào các chức vụ chủ chốt của Đảng. ![1960](/assets/roadmap-images/1960.png)',
             english:
-                'The Third Party Congress reaffirmed him in the Party’s top leadership positions.',
+                'The Third Party Congress reaffirmed him in the Party’s top leadership positions. ![1960](/assets/roadmap-images/1960.png)',
         },
         significance: {
             vietnamese:
@@ -332,7 +333,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Lãnh đạo kháng chiến chống Mỹ ở miền Nam thông qua Mặt trận Dân tộc Giải phóng miền Nam. ![1955-1969](/assets/roadmap-images/1955-1969.jpg)',
             english:
-                'Directed the resistance against the United States in the South via the National Liberation Front.',
+                'Directed the resistance against the United States in the South via the National Liberation Front. ![1955-1969](/assets/roadmap-images/1955-1969.jpg)',
         },
         significance: {
             vietnamese:
@@ -352,7 +353,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Do sức khỏe giảm sút, ông giảm dần sự can dự trực tiếp vào công việc lãnh đạo hàng ngày. ![1965](/assets/roadmap-images/1965-tro-di.jpg)',
             english:
-                'As his health declined, he gradually reduced direct involvement in day-to-day leadership.',
+                'As his health declined, he gradually reduced direct involvement in day-to-day leadership. ![1965](/assets/roadmap-images/1965-tro-di.jpg)',
         },
         significance: {
             vietnamese:
@@ -372,7 +373,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Viết bản Di chúc, căn dặn nhiệm vụ của Đảng và dân tộc, nhấn mạnh đoàn kết và tình yêu thương con người. ![1965-1969](/assets/roadmap-images/1965-1969-di-chuc.jpg)',
             english:
-                'Wrote his Testament, outlining Party and national duties and emphasising unity and human compassion.',
+                'Wrote his Testament, outlining Party and national duties and emphasising unity and human compassion. ![1965-1969](/assets/roadmap-images/1965-1969-di-chuc.jpg)',
         },
         significance: {
             vietnamese:
@@ -390,7 +391,7 @@ export const roadmapEntries: RoadmapEntry[] = [
         period: { vietnamese: '02/9/1969', english: '2 September 1969' },
         event: {
             vietnamese: 'Qua đời tại Hà Nội, thọ 79 tuổi. ![1969](/assets/roadmap-images/2-9-1969.jpg)',
-            english: 'Passed away in Hà Nội at the age of 79.',
+            english: 'Passed away in Hà Nội at the age of 79. ![1969](/assets/roadmap-images/2-9-1969.jpg)',
         },
         significance: {
             vietnamese:
@@ -410,7 +411,7 @@ export const roadmapEntries: RoadmapEntry[] = [
             vietnamese:
                 'Xây dựng Lăng Chủ tịch Hồ Chí Minh và đưa thi hài Người vào bảo quản; khánh thành năm 1975. ![1973-1975](/assets/roadmap-images/1973-1975.jpg)',
             english:
-                'Constructed Hồ Chí Minh’s Mausoleum to preserve his body; inaugurated in 1975.',
+                'Constructed Hồ Chí Minh’s Mausoleum to preserve his body; inaugurated in 1975. ![1973-1975](/assets/roadmap-images/1973-1975.jpg)',
         },
         significance: {
             vietnamese:

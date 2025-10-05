@@ -51,63 +51,67 @@ export default function HomePage() {
             description: t('home.chapter6Description'),
             icon: Heart,
             gradient:
-                'from-rose-50 via-amber-50 to-pink-50 dark:from-rose-900/20 dark:via-amber-900/20 dark:to-pink-900/20',
-            border: 'border-rose-200/50 dark:border-rose-700/50',
-            floatingTop: 'from-rose-500/25 to-amber-500/25',
-            floatingBottom: 'from-pink-500/20 to-rose-500/20',
-            iconGradient: 'from-rose-500 to-amber-500',
-            statsBg: 'bg-rose-100 dark:bg-rose-900/50',
-            statsText: 'text-rose-700 dark:text-rose-300',
+                'from-red-50 via-amber-50 to-white dark:from-red-950/50 dark:via-red-900/40 dark:to-amber-950/30',
+            border: 'border-red-200/70 dark:border-red-800/60',
+            floatingTop: 'from-red-600/25 to-amber-500/20',
+            floatingBottom: 'from-amber-500/20 to-red-500/20',
+            iconGradient: 'from-red-700 to-amber-500',
+            statsBg: 'bg-amber-100/80 dark:bg-red-900/50',
+            statsText: 'text-red-700 dark:text-yellow-200',
             titleHover:
-                'group-hover:text-rose-600 dark:group-hover:text-rose-400',
+                'group-hover:text-red-700 dark:group-hover:text-yellow-200',
             buttonHover:
-                'group-hover:bg-gradient-to-r group-hover:from-rose-500 group-hover:to-amber-500 group-hover:text-white group-hover:border-transparent',
+                'group-hover:bg-gradient-to-r group-hover:from-red-700 group-hover:to-red-500 group-hover:text-yellow-100 group-hover:border-transparent',
             buttonClasses:
-                'border-2 border-rose-200 text-rose-700 hover:text-white dark:border-rose-500 dark:text-rose-300',
-            shadow: 'hover:shadow-rose-500/25 dark:hover:shadow-rose-400/25',
+                'border-2 border-red-200 text-red-700 hover:text-yellow-100 dark:border-red-600 dark:text-yellow-200',
+            shadow: 'hover:shadow-red-500/25 dark:hover:shadow-red-400/30',
         },
     ] as const
 
     return (
         <div className="container mx-auto px-4 py-8">
             {/* Hero Section */}
-            <section className="text-center mb-16 relative overflow-hidden px-6 py-16 md:px-12 md:py-24 lg:px-16 lg:py-32">
+            <section className="relative mb-16 overflow-hidden bg-gradient-to-br from-red-950 via-red-800 to-red-600 px-6 py-16 text-center text-white md:px-12 md:py-24 lg:px-16 lg:py-32">
                 {/* Enhanced Background Effects - Classic Purple-Blue-Emerald */}
                 <div className="absolute inset-0 -z-10">
-                    <div className="absolute top-10 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-15"></div>
-                    <div className="absolute top-20 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 dark:opacity-12"></div>
-                    <div className="absolute -bottom-10 left-1/3 w-72 h-72 bg-gradient-to-r from-emerald-400 to-teal-400 rounded-full mix-blend-multiply filter blur-3xl opacity-15 dark:opacity-10"></div>
-                    <div className="absolute top-1/2 right-1/6 w-64 h-64 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mix-blend-multiply filter blur-3xl opacity-8 dark:opacity-5"></div>
+                    <div className="absolute top-10 left-1/4 h-96 w-96 rounded-full bg-gradient-to-r from-red-900 via-red-700 to-red-500 opacity-30 blur-3xl"></div>
+                    <div className="absolute top-20 right-1/4 h-80 w-80 rounded-full bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-300 opacity-25 blur-3xl"></div>
+                    <div className="absolute -bottom-10 left-1/3 h-72 w-72 rounded-full bg-gradient-to-r from-red-700 via-rose-600 to-amber-500 opacity-20 blur-3xl"></div>
+                    <div className="absolute top-1/2 right-1/6 h-64 w-64 rounded-full bg-gradient-to-r from-yellow-500 to-amber-400 opacity-15 blur-3xl"></div>
                 </div>
 
                 {/* Floating Elements */}
                 <div className="absolute inset-0 -z-5 overflow-hidden">
-                    <div className="absolute top-20 left-10 w-6 h-6 bg-purple-500/15 rounded-full"></div>
-                    <div className="absolute top-40 right-16 w-4 h-4 bg-blue-500/20 rounded-full"></div>
-                    <div className="absolute bottom-32 left-20 w-8 h-8 bg-emerald-500/15 rounded-full"></div>
-                    <div className="absolute top-60 left-1/2 w-5 h-5 bg-pink-500/15 rounded-full"></div>
-                    <div className="absolute bottom-20 right-10 w-7 h-7 bg-yellow-500/20 rounded-full"></div>
+                    <div className="absolute top-20 left-10 h-6 w-6 rounded-full bg-yellow-400/40"></div>
+                    <div className="absolute top-40 right-16 h-4 w-4 rounded-full bg-red-400/40"></div>
+                    <div className="absolute bottom-32 left-20 h-8 w-8 rounded-full bg-amber-400/35"></div>
+                    <div className="absolute top-60 left-1/2 h-5 w-5 rounded-full bg-red-300/35"></div>
+                    <div className="absolute bottom-20 right-10 h-7 w-7 rounded-full bg-yellow-300/35"></div>
                 </div>
 
                 <div className="max-w-4xl mx-auto relative z-10">
                     <div className="animate-fade-in-up">
-                        <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gray-900 dark:text-white">
+                        <h1 className="mb-6 text-5xl font-bold text-white drop-shadow-2xl md:text-7xl">
                             {t('home.title')}
                         </h1>
                     </div>
                     <div className="animate-fade-in-up delay-200">
-                        <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">
+                        <p className="mx-auto mb-4 max-w-3xl text-xl text-red-50/90 md:text-2xl">
                             {t('home.subtitle')}
                         </p>
                     </div>
                     <div className="animate-fade-in-up delay-400">
-                        <p className="text-lg text-muted-foreground/80 mb-8 max-w-2xl mx-auto">
+                        <p className="mx-auto mb-8 max-w-2xl text-lg text-red-50/80">
                             {t('home.heroDescription')}
                         </p>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in-up delay-600">
-                        <Button asChild size="lg" className="text-lg px-8 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 dark:from-purple-500 dark:to-blue-500 dark:hover:from-purple-600 dark:hover:to-blue-600 transform hover:scale-105 transition-all duration-300">
+                        <Button
+                            asChild
+                            size="lg"
+                            className="text-lg px-8 py-3 shadow-lg shadow-red-900/30 transition-transform duration-300 hover:scale-105 hover:shadow-red-700/40"
+                        >
                             <Link href="/blogs">
                                 <BookOpen className="mr-2 h-5 w-5" />
                                 {t('home.readBlog')}
@@ -116,7 +120,7 @@ export default function HomePage() {
                         <Button
                             variant="outline"
                             size="lg"
-                            className="text-lg px-8 py-3 border-2 border-emerald-500 text-emerald-600 hover:bg-emerald-500 hover:text-white dark:border-emerald-400 dark:text-emerald-400 dark:hover:bg-emerald-400 dark:hover:text-gray-900 transform hover:scale-105 transition-all duration-300"
+                            className="text-lg px-8 py-3 border-yellow-300 bg-transparent text-yellow-100 transition-transform duration-300 hover:scale-105 hover:bg-red-600/90 hover:text-yellow-50"
                             asChild
                         >
                             <Link href="/quiz">
@@ -127,20 +131,20 @@ export default function HomePage() {
                     </div>
 
                     {/* Enhanced Quick Stats */}
-                    <div className="flex justify-center space-x-8 text-sm text-muted-foreground animate-fade-in-up delay-800">
-                        <div className="flex items-center group cursor-pointer">
-                            <div className="w-3 h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
-                            <span className="group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    <div className="flex justify-center space-x-8 text-sm text-red-50/80 animate-fade-in-up delay-800">
+                        <div className="group flex cursor-pointer items-center">
+                            <div className="mr-2 h-3 w-3 rounded-full bg-gradient-to-r from-red-500 to-red-400 transition-transform group-hover:scale-125"></div>
+                            <span className="transition-colors group-hover:text-yellow-100">
                                 {totalArticles} {t('home.articlesCount')}
                             </span>
                         </div>
-                        <div className="flex items-center group cursor-pointer">
-                            <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
-                            <span className="group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">2 {t('home.languagesSupported')}</span>
+                        <div className="group flex cursor-pointer items-center">
+                            <div className="mr-2 h-3 w-3 rounded-full bg-gradient-to-r from-amber-400 to-yellow-400 transition-transform group-hover:scale-125"></div>
+                            <span className="transition-colors group-hover:text-yellow-200">2 {t('home.languagesSupported')}</span>
                         </div>
-                        <div className="flex items-center group cursor-pointer">
-                            <div className="w-3 h-3 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full mr-2 group-hover:scale-125 transition-transform"></div>
-                            <span className="group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">AI Assistant</span>
+                        <div className="group flex cursor-pointer items-center">
+                            <div className="mr-2 h-3 w-3 rounded-full bg-gradient-to-r from-white/80 to-yellow-200/80 transition-transform group-hover:scale-125"></div>
+                            <span className="transition-colors group-hover:text-yellow-200">AI Assistant</span>
                         </div>
                     </div>
                 </div>
@@ -179,11 +183,11 @@ export default function HomePage() {
                                         <Icon className="h-8 w-8 text-white" />
                                     </div>
                                     <h3
-                                        className={`text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100 transition-colors duration-300 ${card.titleHover}`}
+                                        className={`text-2xl font-bold mb-3 text-red-900 dark:text-yellow-100 transition-colors duration-300 ${card.titleHover}`}
                                     >
                                         {card.title}
                                     </h3>
-                                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                                    <p className="mb-6 leading-relaxed text-red-900/70 dark:text-yellow-200/80">
                                         {card.description}
                                     </p>
                                     <div className="flex items-center justify-between">
