@@ -16,15 +16,18 @@ type QuizState = {
   answers: (number | null)[]
 }
 
+type QuizMode = "resume" | "review"
+
 interface QuizProps {
   questions: QuizQuestion[]
   storageKey: string
+  mode?: QuizMode
 }
 
 const createDefaultAnswers = (length: number) =>
   Array.from({ length }, () => null as number | null)
 
-export function Quiz({ questions, storageKey }: QuizProps) {
+export function Quiz({ questions, storageKey, mode }: QuizProps) {
   const { t } = useLanguage()
   const [state, setState] = useState<QuizState>(() => ({
     currentQuestion: 0,
@@ -40,6 +43,12 @@ export function Quiz({ questions, storageKey }: QuizProps) {
 
   const bgmRef = useRef<HTMLAudioElement | null>(null)
   const sfxRef = useRef<HTMLAudioElement | null>(null)
+
+  const modeRef = useRef<QuizMode | undefined>(mode)
+
+  useEffect(() => {
+    modeRef.current = mode
+  }, [mode])
 
   const storageKeyName = useMemo(() => {
     const safeKey = storageKey.replace(/[^a-zA-Z0-9-_]/g, "-")
@@ -137,10 +146,19 @@ export function Quiz({ questions, storageKey }: QuizProps) {
             Math.max(Number(parsed.currentQuestion) || 0, 0),
             Math.max(questions.length - 1, 0),
           )
-          const sanitizedShowResult = Boolean(parsed.showResult)
+          const normalizedAnswers = normalizeAnswers(parsed.answers)
+
+          const answeredCount = normalizedAnswers.reduce(
+            (total, value) => (value !== null ? total + 1 : total),
+            0,
+          )
+          const shouldForceReview =
+            modeRef.current === "review" &&
+            (Boolean(parsed.showResult) || answeredCount >= questions.length)
+
+          const sanitizedShowResult = Boolean(parsed.showResult || shouldForceReview)
           const sanitizedSelectedAnswer =
             typeof parsed.selectedAnswer === "string" ? parsed.selectedAnswer : ""
-          const normalizedAnswers = normalizeAnswers(parsed.answers)
 
           const effectiveCurrent = sanitizedShowResult
             ? Math.max(questions.length - 1, 0)
@@ -156,6 +174,13 @@ export function Quiz({ questions, storageKey }: QuizProps) {
             selectedAnswer: hydratedSelected,
             showResult: sanitizedShowResult,
             answers: normalizedAnswers,
+          })
+        } else if (modeRef.current === "review") {
+          setState({
+            currentQuestion: Math.max(questions.length - 1, 0),
+            selectedAnswer: "",
+            showResult: questions.length > 0,
+            answers: createDefaultAnswers(questions.length),
           })
         } else {
           window.localStorage.removeItem(storageKeyName)

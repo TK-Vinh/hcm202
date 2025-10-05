@@ -320,6 +320,12 @@ export default function QuizOverviewPage() {
                                 : status === 'inProgress'
                                   ? t('quiz.resumePartButton')
                                   : t('quiz.startPartButton')
+                        const targetHref =
+                            status === 'completed'
+                                ? `${card.href}?mode=review`
+                                : status === 'inProgress'
+                                  ? `${card.href}?mode=resume`
+                                  : card.href
                         let detailText = t('quiz.noAttemptsYet')
 
                         if (result) {
@@ -369,7 +375,7 @@ export default function QuizOverviewPage() {
                                                 asChild
                                                 className="transition-transform duration-300 group-hover:scale-[1.02]"
                                             >
-                                                <Link href={card.href} className="flex items-center">
+                                                <Link href={targetHref} className="flex items-center">
                                                     {buttonLabel}
                                                     <ArrowRight className="ml-2 h-4 w-4" />
                                                 </Link>

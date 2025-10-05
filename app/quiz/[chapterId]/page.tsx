@@ -182,6 +182,12 @@ export default function QuizChapterPage({ params }: QuizPageProps) {
                             : status === 'inProgress'
                               ? t('quiz.resumePartButton')
                               : t('quiz.startPartButton')
+                    const targetHref =
+                        status === 'completed'
+                            ? `${part.href}?mode=review`
+                            : status === 'inProgress'
+                              ? `${part.href}?mode=resume`
+                              : part.href
 
                     let detailText = t('quiz.noAttemptsYet')
 
@@ -235,7 +241,10 @@ export default function QuizChapterPage({ params }: QuizPageProps) {
                             </CardHeader>
                             <CardContent className="flex items-center justify-between gap-3">
                                 <Button asChild className="flex-1">
-                                    <Link href={part.href} className="flex items-center justify-center">
+                                    <Link
+                                        href={targetHref}
+                                        className="flex items-center justify-center"
+                                    >
                                         {buttonLabel}
                                         <ArrowRight className="ml-2 h-4 w-4" />
                                     </Link>
