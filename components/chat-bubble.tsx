@@ -37,7 +37,7 @@ export function ChatBubble() {
   // Khởi tạo tin nhắn chào mừng khi mở chat
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      const welcomeMessageText = "E-Learning xin chào! Bạn muốn thảo luận về chủ đề triết học nào?";
+      const welcomeMessageText = "Xin chào! Tôi là E-Learning, trợ lý Triết học Hồ Chí Minh. Bạn muốn thảo luận hoặc đặt câu hỏi về tư tưởng đạo đức theo Hồ Chí Minh chứ?";
       geminiApiClient.resetChatHistory();
       setMessages([
         {
