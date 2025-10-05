@@ -343,7 +343,9 @@ export default function QuizOverviewPage() {
                     </CardContent>
                 </Card>
 
-                <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+                <div
+                    className="mt-12 grid grid-cols-1 gap-8 md:[grid-template-columns:repeat(auto-fit,minmax(18rem,1fr))]"
+                >
                     {quizCards.map((card) => {
                         const Icon = card.icon
                         const chapter = philosophyBlogs[card.chapterId]
