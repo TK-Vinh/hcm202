@@ -14,6 +14,7 @@ type QuizState = {
   selectedAnswer: string
   showResult: boolean
   answers: (number | null)[]
+  storedScore: number | null
 }
 
 type QuizMode = "resume" | "review"
@@ -34,6 +35,7 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
     selectedAnswer: "",
     showResult: false,
     answers: createDefaultAnswers(questions.length),
+    storedScore: null,
   }))
 
   const hasHydrated = useRef(false)
@@ -43,12 +45,6 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
 
   const bgmRef = useRef<HTMLAudioElement | null>(null)
   const sfxRef = useRef<HTMLAudioElement | null>(null)
-
-  const modeRef = useRef<QuizMode | undefined>(mode)
-
-  useEffect(() => {
-    modeRef.current = mode
-  }, [mode])
 
   const storageKeyName = useMemo(() => {
     const safeKey = storageKey.replace(/[^a-zA-Z0-9-_]/g, "-")
@@ -152,8 +148,12 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
             (total, value) => (value !== null ? total + 1 : total),
             0,
           )
+          const rawScore = Number(parsed.score)
+          const sanitizedScore = Number.isFinite(rawScore)
+            ? Math.min(Math.max(rawScore, 0), questions.length)
+            : 0
           const shouldForceReview =
-            modeRef.current === "review" &&
+            mode === "review" &&
             (Boolean(parsed.showResult) || answeredCount >= questions.length)
 
           const sanitizedShowResult = Boolean(parsed.showResult || shouldForceReview)
@@ -169,19 +169,32 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
             : sanitizedSelectedAnswer ||
               (fallbackSelected !== null ? fallbackSelected.toString() : "")
 
+          const answersContainHistory = normalizedAnswers.some(
+            (value) => value !== null,
+          )
+
+          skipNextStorageWrite.current = true
+
           setState({
             currentQuestion: effectiveCurrent,
             selectedAnswer: hydratedSelected,
             showResult: sanitizedShowResult,
             answers: normalizedAnswers,
+            storedScore: answersContainHistory ? null : sanitizedScore,
           })
-        } else if (modeRef.current === "review") {
+          return
+        } else if (mode === "review") {
+          skipNextStorageWrite.current = true
           setState({
             currentQuestion: Math.max(questions.length - 1, 0),
             selectedAnswer: "",
             showResult: questions.length > 0,
             answers: createDefaultAnswers(questions.length),
+            storedScore: Number.isFinite(Number(parsed?.score))
+              ? Math.min(Math.max(Number(parsed?.score), 0), questions.length)
+              : null,
           })
+          return
         } else {
           window.localStorage.removeItem(storageKeyName)
         }
@@ -191,7 +204,7 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
     } finally {
       hasHydrated.current = true
     }
-  }, [normalizeAnswers, questions.length, storageKeyName])
+  }, [mode, normalizeAnswers, questions.length, storageKeyName])
 
   useEffect(() => {
     if (typeof window === "undefined" || !hasHydrated.current) {
@@ -265,6 +278,7 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
         selectedAnswer: updatedSelected,
         showResult: nextShowResult,
         answers: normalizedAnswers,
+        storedScore: prev.storedScore,
       }
     })
   }, [normalizeAnswers, questions.length])
@@ -313,6 +327,7 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
         selectedAnswer: nextSelected,
         showResult: isLastQuestion,
         answers: updatedAnswers,
+        storedScore: null,
       }
     })
   }
@@ -324,6 +339,7 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
       selectedAnswer: "",
       showResult: false,
       answers: createDefaultAnswers(questions.length),
+      storedScore: null,
     })
     if (typeof window !== "undefined") {
       window.localStorage.removeItem(storageKeyName)
@@ -353,11 +369,18 @@ export function Quiz({ questions, storageKey, mode }: QuizProps) {
         selectedAnswer: previousAnswer !== null ? previousAnswer.toString() : "",
         showResult: false,
         answers: normalizedAnswers,
+        storedScore: null,
       }
     })
   }
 
-  const score = useMemo(() => computeScore(state.answers), [computeScore, state.answers])
+  const score = useMemo(() => {
+    const computed = computeScore(state.answers)
+    if (state.showResult && computed === 0 && state.storedScore !== null) {
+      return state.storedScore
+    }
+    return computed
+  }, [computeScore, state.answers, state.showResult, state.storedScore])
   if (state.showResult) {
     const correctCount = score
     const incorrectCount = Math.max(questions.length - correctCount, 0)
