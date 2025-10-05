@@ -96,25 +96,25 @@ export default function blogsPage() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-950/20 dark:to-purple-950/20">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-amber-50/40 to-white dark:from-red-950 dark:via-red-900/60 dark:to-amber-950/30">
       <div className="container mx-auto px-4 py-6">
         {/* Enhanced Header Section */}
         <div className="relative mb-8 text-center">
           {/* Background Effects */}
           <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute top-0 left-1/4 w-32 h-32 bg-gradient-to-r from-purple-400/20 to-blue-400/20 rounded-full blur-2xl animate-pulse"></div>
-            <div className="absolute top-10 right-1/3 w-24 h-24 bg-gradient-to-r from-emerald-400/15 to-teal-400/15 rounded-full blur-xl animate-pulse delay-1000"></div>
+            <div className="absolute top-0 left-1/4 w-32 h-32 bg-gradient-to-r from-red-600/20 via-red-500/20 to-amber-400/20 rounded-full blur-2xl animate-pulse"></div>
+            <div className="absolute top-10 right-1/3 w-24 h-24 bg-gradient-to-r from-red-400/15 to-yellow-300/15 rounded-full blur-xl animate-pulse delay-1000"></div>
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-100/80 via-blue-100/80 to-emerald-100/80 dark:from-purple-900/30 dark:via-blue-900/30 dark:to-emerald-900/30 rounded-full border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-sm mb-4">
-              <BookOpen className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-              <span className="text-sm font-medium text-purple-700 dark:text-purple-300">
+            <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-red-100/80 via-amber-100/80 to-white/80 dark:from-red-950/40 dark:via-red-900/30 dark:to-amber-900/30 rounded-full border border-red-200/50 dark:border-red-800/50 backdrop-blur-sm mb-4">
+              <BookOpen className="h-5 w-5 text-red-600 dark:text-amber-300" />
+              <span className="text-sm font-medium text-red-700 dark:text-amber-200">
                 {filteredblogs.length} {t('blogPage.articlesAvailable')}
               </span>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-blue-600 to-emerald-600 dark:from-purple-400 dark:via-blue-400 dark:to-emerald-400 bg-clip-text text-transparent animate-gradient">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-red-700 via-red-600 to-amber-500 dark:from-red-400 dark:via-red-300 dark:to-amber-300 bg-clip-text text-transparent animate-gradient">
               {t('blogPage.heroTitle')}
             </h1>
             <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed">
@@ -126,14 +126,14 @@ export default function blogsPage() {
         {/* Enhanced Search and Filter Section */}
         <div className="relative mb-8">
           {/* Background decoration */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white/50 via-blue-50/50 to-purple-50/50 dark:from-gray-800/50 dark:via-blue-900/20 dark:to-purple-900/20 rounded-3xl blur-xl"></div>
-          
-          <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-3xl p-6 border border-gray-200/50 dark:border-gray-700/50 shadow-lg">
+          <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-amber-50/50 to-red-50/40 dark:from-red-950/70 dark:via-red-900/50 dark:to-amber-950/40 rounded-3xl blur-xl"></div>
+
+          <div className="relative bg-white/85 dark:bg-red-950/80 backdrop-blur-sm rounded-3xl p-6 border border-red-200/50 dark:border-red-800/50 shadow-lg shadow-red-900/20">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl shadow-lg">
+              <div className="p-2 bg-gradient-to-r from-red-700 via-red-600 to-amber-500 rounded-xl shadow-lg shadow-red-900/30">
                 <Filter className="h-4 w-4 text-white" />
               </div>
-              <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-400 dark:to-blue-400 bg-clip-text text-transparent">
+              <h2 className="text-xl font-bold bg-gradient-to-r from-red-700 via-red-600 to-amber-500 dark:from-red-400 dark:via-red-300 dark:to-amber-200 bg-clip-text text-transparent">
                 {t('blogPage.filterAndSearch')}
               </h2>
             </div>
@@ -141,12 +141,12 @@ export default function blogsPage() {
             <div className="flex flex-col gap-4">
               {/* Enhanced Search Input */}
               <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-red-700 via-red-600 to-amber-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5 transition-colors group-focus-within:text-purple-500" />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5 transition-colors group-focus-within:text-red-500" />
                   <Input
                     placeholder={t('blogPage.searchPlaceholder')}
-                    className="pl-12 pr-4 py-2.5 text-base bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl transition-all duration-300 focus:border-purple-500 dark:focus:border-purple-400 focus:shadow-lg focus:shadow-purple-500/25"
+                    className="pl-12 pr-4 py-2.5 text-base bg-white dark:bg-red-950/70 border-2 border-red-100/80 dark:border-red-800/60 rounded-xl transition-all duration-300 focus:border-red-500 dark:focus:border-amber-400 focus:shadow-lg focus:shadow-red-500/25"
                     value={searchTerm}
                     onChange={handleSearchChange}
                   />
@@ -154,7 +154,7 @@ export default function blogsPage() {
               </div>
 
               {/* Enhanced Filter Row - Blog, Section & Clear on same row */}
-              <div className="bg-gradient-to-r from-gray-50/50 to-blue-50/50 dark:from-gray-800/50 dark:to-blue-900/30 rounded-2xl p-4 border border-gray-200/50 dark:border-gray-700/50">
+              <div className="bg-gradient-to-r from-white/60 to-amber-50/50 dark:from-red-950/50 dark:to-red-900/40 rounded-2xl p-4 border border-red-200/40 dark:border-red-800/50">
                 <div className="flex items-center gap-4 w-full">
                   {/* Blog Selector - Takes most space */}
                   <div className="flex-1">
@@ -173,9 +173,9 @@ export default function blogsPage() {
                         onClick={clearAllFilters}
                         variant="outline"
                         size="sm"
-                        className="group relative overflow-hidden border-purple-200 hover:border-purple-300 dark:border-purple-700 dark:hover:border-purple-600 text-purple-600 hover:text-purple-700 dark:text-purple-400 dark:hover:text-purple-300 whitespace-nowrap"
+                        className="group relative overflow-hidden border-red-300 hover:border-red-400 dark:border-red-800 dark:hover:border-red-700 text-red-700 hover:text-yellow-100 dark:text-amber-200 dark:hover:text-yellow-100 whitespace-nowrap"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-100/50 to-amber-100/50 dark:from-red-950/30 dark:to-amber-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <div className="relative flex items-center gap-2">
                           <X className="h-3 w-3" />
                           <span className="text-xs font-medium">{t('blogPage.clearAll')}</span>
@@ -192,10 +192,10 @@ export default function blogsPage() {
         {/* Results Summary */}
         {(searchTerm || selectedBlog !== "all") && (
           <div className="mb-6 text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-100/80 to-teal-100/80 dark:from-emerald-900/30 dark:to-teal-900/30 rounded-full border border-emerald-200/50 dark:border-emerald-700/50">
-              <span className="text-emerald-700 dark:text-emerald-300 font-medium">
-                {filteredblogs.length === 0 
-                  ? t('blogPage.noResults') 
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-red-100/80 to-amber-100/80 dark:from-red-950/40 dark:to-amber-900/30 rounded-full border border-red-200/50 dark:border-red-800/50">
+              <span className="text-red-700 dark:text-amber-200 font-medium">
+                {filteredblogs.length === 0
+                  ? t('blogPage.noResults')
                   : `${filteredblogs.length} ${t('blogPage.resultsFound')}`
                 }
               </span>
@@ -218,7 +218,7 @@ export default function blogsPage() {
   }}
             >
               {/* Glowing border effect */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 via-blue-600/20 to-emerald-600/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-red-700/20 via-red-600/20 to-amber-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500"></div>
               <div className="relative">
                 <BlogCard blog={blog} />
               </div>
@@ -232,7 +232,7 @@ export default function blogsPage() {
             <div className="relative">
               {/* Background decoration */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-32 h-32 bg-gradient-to-r from-purple-200/50 to-blue-200/50 dark:from-purple-800/30 dark:to-blue-800/30 rounded-full blur-2xl"></div>
+                <div className="w-32 h-32 bg-gradient-to-r from-red-200/50 to-amber-200/50 dark:from-red-900/40 dark:to-amber-900/40 rounded-full blur-2xl"></div>
               </div>
               
               <div className="relative z-10">
