@@ -50,14 +50,16 @@ Vai trò của đạo đức
 
 Những phẩm chất thống nhất của con người
 - Trong tư tưởng đạo đức Hồ Chí Minh: “Đức và tài, hồng và chuyên, phẩm chất và năng lực phải thống nhất.”
-- Đạo đức là tiêu chuẩn cho mục đích hành động: “Hồng” = Đức, gắn với lý tưởng cách mạng, lòng yêu nước, yêu chủ nghĩa xã hội, sự trong sáng về đạo đức.
-- Tài là phương tiện thực hiện mục đích đó: “Chuyên” = Tài, nghĩa là chuyên môn, nghiệp vụ, kỹ năng nghề nghiệp; người “có chuyên” làm việc hiệu quả, đem lại lợi ích cho tập thể, cho nhân dân.
+- Đạo đức là tiêu chuẩn cho mục đích hành động: Hay còn có thể nói “Hồng” là Đức vì cách nói hình tượng của Hồ Chí Minh, gắn với màu đỏ – tượng trưng cho lý tưởng cách mạng, cho lòng yêu nước, yêu chủ nghĩa xã hội, cho sự trong sáng về đạo đức. Người cán bộ “có hồng” tức là có phẩm chất chính trị, tư tưởng, đạo đức cách mạng đúng đắn.
+- Tài là phương tiện thực hiện mục đích đó: Theo cách lý giải của Hồ Chí Minh, “Chuyên” chính là Tài – toàn bộ tri thức chuyên môn, nghiệp vụ, kỹ năng nghề nghiệp của mỗi người. Người “có chuyên” làm việc hiệu quả, đem lại lợi ích cho tập thể, cho nhân dân.
 - Con người cần có cả đức và tài; thiếu tài thì làm việc gì cũng khó, nhưng thiếu đạo đức thì vô dụng, thậm chí có hại.
 `,
             english: `
 Chapter 6: Hồ Chí Minh's Thought on Culture, Ethics, and Humanity
 
 1. Ethics are the root and spiritual foundation of society and revolutionaries
+
+![Ethics](/assets/blog-images/content-images/6.1-1.jpeg)
 
 Ethics nourish and develop human beings
 - Hồ Chí Minh affirmed: “Ethics nourish and develop human beings.” He also emphasised that “Ethics are the root, the foundation, the strength, and the foremost standard for revolutionaries.”
@@ -83,6 +85,8 @@ Ethics are the strength of revolutionaries
 - Revolutionary ethics are the pillar that helps people remain steadfast through every trial.
 - “With revolutionary ethics, when facing difficulties, hardships, or defeat, one does not feel fear or withdraw... When meeting favourable conditions and success, one still maintains the spirit of hardship, simplicity, and humility.” (Collected Works, vol.11, pp.602-603).
 
+![Ethics](/assets/blog-images/content-images/6.1-2.jpg)
+
 Ethics must appear in action; practical effectiveness is the measure
 - Ethics cannot remain mere words or theoretical principles; they must manifest clearly in action and in serving the people.
 - To judge whether someone is ethical, examine the tangible outcomes of their work and dedication. “Words must match deeds” and “effectiveness in serving the people is the measure” are the highest standards of ethics.
@@ -95,8 +99,8 @@ The role of ethics
 
 Unified human qualities
 - In Hồ Chí Minh’s ethical thought: “Virtue and talent, redness and expertness, qualities and capacity must be unified.”
-- Ethics guide the purpose of action: “Redness” equals virtue, linked to revolutionary ideals, patriotism, socialism, and moral purity.
-- Talent realises that purpose: “Expertness” equals ability—professional knowledge, expertise, and skills; those “with expertness” work effectively for the collective and the people.
+- Ethics guide the purpose of action: In Hồ Chí Minh’s figurative expression, “Redness” symbolises virtue, associated with the colour red that represents revolutionary ideals, patriotism, socialism, and moral purity. A cadre “with redness” therefore embodies sound political qualities and revolutionary ethics.
+- Talent realises that purpose: In Hồ Chí Minh’s explanation, “Expertness” denotes ability—professional knowledge, expertise, and skills. Those “with expertness” work effectively for the collective and the people.
 - People need both virtue and talent; without talent, work is difficult, but without ethics, talent is useless or even harmful.
 `,
         },
@@ -608,6 +612,7 @@ b) Diligence, thrift, integrity, righteousness, absolute selflessness
 - Righteousness means being frank, proper, not flattering superiors, not despising subordinates, being honest, never deceitful. “Toward oneself—avoid arrogance. Toward others—do not flatter superiors, do not scorn subordinates.”
 - Absolute selflessness means wholly serving the common interest, being fair and impartial, placing the Party’s, the people’s, and the nation’s interests above all, and combating individualism. “Approach people and work with an absolutely selfless heart... When doing anything, do not think of yourself first; when enjoying benefits, place yourself last.”
 - He likened diligence, thrift, integrity, righteousness to the four seasons and directions; lacking one virtue means one cannot be truly human.
+![Integrity and selflessness](/assets/blog-images/content-images/6.2-1.jpg)
 
 c) Loving humanity and living compassionately
 - This is the noblest virtue, blending national benevolence with communist humanism.
@@ -616,6 +621,7 @@ c) Loving humanity and living compassionately
 - In practice, it must rest on the working-class standpoint, expressed daily through concrete, practical actions.
 - Requirements: be strict with oneself; be generous, tolerant, and forgiving toward others; respect human rights and create conditions for talent to flourish; uplift people—including those who have erred—without easy compromise, degradation, or repression.
 - He stressed: “To understand Marxism–Leninism is to live with affection and loyalty... No matter how many books one reads, without affection and loyalty, one cannot claim understanding.” In his Testament he wrote: “First comes work toward people... We must cherish comradeship and mutual love.”
+![Compassion in action](/assets/blog-images/content-images/6.2-2.png)
 
 d) Pure international spirit
 - Rooted in the working-class nature, it expands solidarity beyond national boundaries.
@@ -696,11 +702,13 @@ a) Words must match deeds; lead by moral example
 - Hồ Chí Minh condemned hypocrisy: “Their mouths speak of democracy, yet they act like ‘mandarins’...”
 - He required cadres to set examples in spirit, material life, and culture: “First, set an example yourself...” (Collected Works, vol.4, p.171).
 - Cadres’ exemplary conduct is the most profound method of moral education; standards gain vitality only when they become everyday behaviour.
+![Lead by example](/assets/blog-images/content-images/6.3-2.jfif)
 
 b) Building must go hand in hand with combating
 - Building means cultivating new moral values and standards; combating means fighting degeneration, wrongdoing, and evil.
 - To build we must combat, and combating serves building; building remains primary as it awakens self-education and self-cultivation.
 - He identified individualism as the root of every vice. In “Heighten Revolutionary Ethics, Eliminate Individualism” (1969) he demanded resolute struggle against individualism.
+![Build and combat](/assets/blog-images/content-images/6.3-1.jpg)
 
 c) Lifelong moral cultivation
 - Moral cultivation is a lifelong, patient, persistent, and regular task.

@@ -7,35 +7,35 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { CheckCircle, RotateCcw, XCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
-
-export type QuizQuestion = {
-  question: string
-  options: string[]
-  correct: number
-}
+import type { QuizQuestion } from "@/types/quiz"
 
 type QuizState = {
   currentQuestion: number
   selectedAnswer: string
   showResult: boolean
   answers: (number | null)[]
+  storedScore: number | null
 }
+
+type QuizMode = "resume" | "review"
 
 interface QuizProps {
   questions: QuizQuestion[]
   storageKey: string
+  mode?: QuizMode
 }
 
 const createDefaultAnswers = (length: number) =>
   Array.from({ length }, () => null as number | null)
 
-export function Quiz({ questions, storageKey }: QuizProps) {
+export function Quiz({ questions, storageKey, mode }: QuizProps) {
   const { t } = useLanguage()
   const [state, setState] = useState<QuizState>(() => ({
     currentQuestion: 0,
     selectedAnswer: "",
     showResult: false,
     answers: createDefaultAnswers(questions.length),
+    storedScore: null,
   }))
 
   const hasHydrated = useRef(false)
@@ -142,10 +142,23 @@ export function Quiz({ questions, storageKey }: QuizProps) {
             Math.max(Number(parsed.currentQuestion) || 0, 0),
             Math.max(questions.length - 1, 0),
           )
-          const sanitizedShowResult = Boolean(parsed.showResult)
+          const normalizedAnswers = normalizeAnswers(parsed.answers)
+
+          const answeredCount = normalizedAnswers.reduce(
+            (total, value) => (value !== null ? total + 1 : total),
+            0,
+          )
+          const rawScore = Number(parsed.score)
+          const sanitizedScore = Number.isFinite(rawScore)
+            ? Math.min(Math.max(rawScore, 0), questions.length)
+            : 0
+          const shouldForceReview =
+            mode === "review" &&
+            (Boolean(parsed.showResult) || answeredCount >= questions.length)
+
+          const sanitizedShowResult = Boolean(parsed.showResult || shouldForceReview)
           const sanitizedSelectedAnswer =
             typeof parsed.selectedAnswer === "string" ? parsed.selectedAnswer : ""
-          const normalizedAnswers = normalizeAnswers(parsed.answers)
 
           const effectiveCurrent = sanitizedShowResult
             ? Math.max(questions.length - 1, 0)
@@ -156,12 +169,32 @@ export function Quiz({ questions, storageKey }: QuizProps) {
             : sanitizedSelectedAnswer ||
               (fallbackSelected !== null ? fallbackSelected.toString() : "")
 
+          const answersContainHistory = normalizedAnswers.some(
+            (value) => value !== null,
+          )
+
+          skipNextStorageWrite.current = true
+
           setState({
             currentQuestion: effectiveCurrent,
             selectedAnswer: hydratedSelected,
             showResult: sanitizedShowResult,
             answers: normalizedAnswers,
+            storedScore: answersContainHistory ? null : sanitizedScore,
           })
+          return
+        } else if (mode === "review") {
+          skipNextStorageWrite.current = true
+          setState({
+            currentQuestion: Math.max(questions.length - 1, 0),
+            selectedAnswer: "",
+            showResult: questions.length > 0,
+            answers: createDefaultAnswers(questions.length),
+            storedScore: Number.isFinite(Number(parsed?.score))
+              ? Math.min(Math.max(Number(parsed?.score), 0), questions.length)
+              : null,
+          })
+          return
         } else {
           window.localStorage.removeItem(storageKeyName)
         }
@@ -171,7 +204,7 @@ export function Quiz({ questions, storageKey }: QuizProps) {
     } finally {
       hasHydrated.current = true
     }
-  }, [normalizeAnswers, questions.length, storageKeyName])
+  }, [mode, normalizeAnswers, questions.length, storageKeyName])
 
   useEffect(() => {
     if (typeof window === "undefined" || !hasHydrated.current) {
@@ -245,6 +278,7 @@ export function Quiz({ questions, storageKey }: QuizProps) {
         selectedAnswer: updatedSelected,
         showResult: nextShowResult,
         answers: normalizedAnswers,
+        storedScore: prev.storedScore,
       }
     })
   }, [normalizeAnswers, questions.length])
@@ -293,6 +327,7 @@ export function Quiz({ questions, storageKey }: QuizProps) {
         selectedAnswer: nextSelected,
         showResult: isLastQuestion,
         answers: updatedAnswers,
+        storedScore: null,
       }
     })
   }
@@ -304,6 +339,7 @@ export function Quiz({ questions, storageKey }: QuizProps) {
       selectedAnswer: "",
       showResult: false,
       answers: createDefaultAnswers(questions.length),
+      storedScore: null,
     })
     if (typeof window !== "undefined") {
       window.localStorage.removeItem(storageKeyName)
@@ -333,11 +369,18 @@ export function Quiz({ questions, storageKey }: QuizProps) {
         selectedAnswer: previousAnswer !== null ? previousAnswer.toString() : "",
         showResult: false,
         answers: normalizedAnswers,
+        storedScore: null,
       }
     })
   }
 
-  const score = useMemo(() => computeScore(state.answers), [computeScore, state.answers])
+  const score = useMemo(() => {
+    const computed = computeScore(state.answers)
+    if (state.showResult && computed === 0 && state.storedScore !== null) {
+      return state.storedScore
+    }
+    return computed
+  }, [computeScore, state.answers, state.showResult, state.storedScore])
   if (state.showResult) {
     const correctCount = score
     const incorrectCount = Math.max(questions.length - correctCount, 0)
