@@ -8,6 +8,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { LanguageProvider } from '@/contexts/language-context'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { usePathname } from 'next/navigation'
 import type React from 'react'
 import './globals.css'
 
@@ -25,6 +26,9 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
+    const pathname = usePathname()
+    const showChatBubble = !(pathname?.startsWith('/quiz') ?? false)
+
     return (
         <html lang="vi" suppressHydrationWarning>
             <body className={inter.className} suppressHydrationWarning>
@@ -39,7 +43,7 @@ export default function RootLayout({
                         <main className="min-h-screen pt-16">{children}</main>
                         <Footer />
                         <ClientOnly>
-                            <ChatBubble />
+                            {showChatBubble ? <ChatBubble /> : null}
                         </ClientOnly>
                     </LanguageProvider>
                 </ThemeProvider>

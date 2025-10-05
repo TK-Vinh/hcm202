@@ -7,12 +7,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { CheckCircle, RotateCcw, XCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
-
-export type QuizQuestion = {
-  question: string
-  options: string[]
-  correct: number
-}
+import type { QuizQuestion } from "@/types/quiz"
 
 type QuizState = {
   currentQuestion: number
