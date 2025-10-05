@@ -612,6 +612,7 @@ b) Diligence, thrift, integrity, righteousness, absolute selflessness
 - Righteousness means being frank, proper, not flattering superiors, not despising subordinates, being honest, never deceitful. “Toward oneself—avoid arrogance. Toward others—do not flatter superiors, do not scorn subordinates.”
 - Absolute selflessness means wholly serving the common interest, being fair and impartial, placing the Party’s, the people’s, and the nation’s interests above all, and combating individualism. “Approach people and work with an absolutely selfless heart... When doing anything, do not think of yourself first; when enjoying benefits, place yourself last.”
 - He likened diligence, thrift, integrity, righteousness to the four seasons and directions; lacking one virtue means one cannot be truly human.
+![Integrity and selflessness](/assets/blog-images/content-images/6.2-1.jpg)
 
 c) Loving humanity and living compassionately
 - This is the noblest virtue, blending national benevolence with communist humanism.
@@ -620,6 +621,7 @@ c) Loving humanity and living compassionately
 - In practice, it must rest on the working-class standpoint, expressed daily through concrete, practical actions.
 - Requirements: be strict with oneself; be generous, tolerant, and forgiving toward others; respect human rights and create conditions for talent to flourish; uplift people—including those who have erred—without easy compromise, degradation, or repression.
 - He stressed: “To understand Marxism–Leninism is to live with affection and loyalty... No matter how many books one reads, without affection and loyalty, one cannot claim understanding.” In his Testament he wrote: “First comes work toward people... We must cherish comradeship and mutual love.”
+![Compassion in action](/assets/blog-images/content-images/6.2-2.png)
 
 d) Pure international spirit
 - Rooted in the working-class nature, it expands solidarity beyond national boundaries.
@@ -700,11 +702,13 @@ a) Words must match deeds; lead by moral example
 - Hồ Chí Minh condemned hypocrisy: “Their mouths speak of democracy, yet they act like ‘mandarins’...”
 - He required cadres to set examples in spirit, material life, and culture: “First, set an example yourself...” (Collected Works, vol.4, p.171).
 - Cadres’ exemplary conduct is the most profound method of moral education; standards gain vitality only when they become everyday behaviour.
+![Lead by example](/assets/blog-images/content-images/6.3-2.jfif)
 
 b) Building must go hand in hand with combating
 - Building means cultivating new moral values and standards; combating means fighting degeneration, wrongdoing, and evil.
 - To build we must combat, and combating serves building; building remains primary as it awakens self-education and self-cultivation.
 - He identified individualism as the root of every vice. In “Heighten Revolutionary Ethics, Eliminate Individualism” (1969) he demanded resolute struggle against individualism.
+![Build and combat](/assets/blog-images/content-images/6.3-1.jpg)
 
 c) Lifelong moral cultivation
 - Moral cultivation is a lifelong, patient, persistent, and regular task.
