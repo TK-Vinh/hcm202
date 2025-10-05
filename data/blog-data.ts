@@ -10,7 +10,7 @@ export const blogData = {
         },
         content: {
             vietnamese: `
-Chương 6: Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người
+
 
 1. Đạo đức là gốc, là nền tảng tinh thần của xã hội, của người cách mạng
 ![Đạo đức](/assets/blog-images/content-images/6.1-1.jpeg)
@@ -55,7 +55,7 @@ Những phẩm chất thống nhất của con người
 - Con người cần có cả đức và tài; thiếu tài thì làm việc gì cũng khó, nhưng thiếu đạo đức thì vô dụng, thậm chí có hại.
 `,
             english: `
-Chapter 6: Hồ Chí Minh's Thought on Culture, Ethics, and Humanity
+
 
 1. Ethics are the root and spiritual foundation of society and revolutionaries
 
@@ -557,7 +557,7 @@ Unified human qualities
         },
         content: {
             vietnamese: `
-Chương 6: Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người
+
 
 2. Quan điểm của Hồ Chí Minh về những chuẩn mực đạo đức cách mạng
 
@@ -593,7 +593,7 @@ d) Tinh thần quốc tế trong sáng
 - Chủ trương đối thoại thay vì đối đầu, kiến tạo nền văn hóa hòa bình cho nhân loại – di sản vô giá của Người về hòa bình, hữu nghị, hợp tác phát triển.
 `,
             english: `
-Chapter 6: Hồ Chí Minh's Thought on Culture, Ethics, and Humanity
+
 
 2. Hồ Chí Minh’s views on the standards of revolutionary ethics
 
@@ -655,7 +655,7 @@ d) Pure international spirit
         },
         content: {
             vietnamese: `
-Chương 6: Tư tưởng Hồ Chí Minh về văn hóa, đạo đức, con người
+
 
 3. Quan điểm về những nguyên tắc xây dựng đạo đức cách mạng
 
@@ -675,25 +675,9 @@ c) Tu dưỡng đạo đức suốt đời
 - Tu dưỡng đạo đức là việc làm suốt đời, lâu dài, kiên trì, thường xuyên, liên tục.
 - Đạo đức không tự nhiên có, phải được rèn luyện trong thực tiễn công việc và các quan hệ xã hội.
 - Mỗi người phải tự giác nhìn thẳng vào mình, thấy rõ cái hay để phát huy, cái dở để khắc phục; không tự lừa dối, luôn nỗ lực hoàn thiện.
-
-Bảng so sánh đạo đức thông thường và đạo đức cách mạng
-
-| Tiêu chí | Đạo đức thông thường | Đạo đức cách mạng |
-| --- | --- | --- |
-| Cơ sở hình thành | Truyền thống, phong tục, tập quán, gia đình, cộng đồng | Hệ giá trị, lý tưởng cách mạng, mục tiêu quốc gia, dân tộc |
-| Phạm vi | Quan hệ cá nhân – gia đình – cộng đồng nhỏ | Quan hệ với dân tộc, nhân dân, xã hội, quốc tế |
-| Chuẩn mực chính | Hiếu thảo, trung thực, nhân ái, đoàn kết, giữ gìn nề nếp | Trung với nước, hiếu với dân; cần, kiệm, liêm, chính, chí công vô tư; thương yêu con người, tinh thần quốc tế trong sáng |
-| Tính chất | Mang tính ổn định, đề cao hòa khí, kế thừa truyền thống | Mang tính chiến đấu, hướng tới mục tiêu cách mạng, đề cao lý tưởng phụng sự nhân dân |
-
-Liên hệ với thực tiễn: xây dựng nhân cách cán bộ, giữ gìn uy tín Đảng
-- Cán bộ thực sự “cần, kiệm, liêm, chính, chí công vô tư”, tận tụy vì dân, nói đi đôi với làm sẽ tạo niềm tin, uy tín với quần chúng; nhân dân tin tưởng, đồng hành với chủ trương của Đảng, chính quyền.
-- Tổng Bí thư Nguyễn Phú Trọng là tấm gương nêu cao đạo đức, kiên quyết chống tham nhũng, kiên trì xây dựng “Đảng trong sạch, vững mạnh”.
-- Chiến dịch “đốt lò” xử lý hơn 200 cán bộ cấp cao giai đoạn 2016–2024, đưa ra ánh sáng các vụ Việt Á, “chuyến bay giải cứu”, Vạn Thịnh Phát, AIC, FLC, Tân Hoàng Minh... thể hiện quyết tâm chống suy thoái, củng cố niềm tin nhân dân.
-- Nhờ chú trọng đạo đức cách mạng, dám “chống cái xấu, xây cái tốt”, Đảng Cộng sản Việt Nam giữ được sức mạnh, khôi phục và củng cố niềm tin sau mỗi lần tự phê bình, xử lý sai phạm công khai, minh bạch.
-- Việc học tập, noi gương đạo đức Hồ Chí Minh, nâng cao đạo đức cách mạng cho cán bộ, đảng viên là yêu cầu sống còn đối với sự tồn vong của Đảng, sự phát triển bền vững của đất nước.
 `,
             english: `
-Chapter 6: Hồ Chí Minh's Thought on Culture, Ethics, and Humanity
+
 
 3. Principles for cultivating revolutionary ethics
 
@@ -714,22 +698,6 @@ c) Lifelong moral cultivation
 - Moral cultivation is a lifelong, patient, persistent, and regular task.
 - Ethics do not arise naturally; they must be forged through work and social relationships.
 - Each person must consciously self-reflect, recognise strengths to promote and weaknesses to overcome; never deceive oneself, always strive for improvement.
-
-Comparison between ordinary morality and revolutionary ethics
-
-| Criterion | Ordinary morality | Revolutionary ethics |
-| --- | --- | --- |
-| Formation basis | Traditions, customs, family, community | Revolutionary values, ideals, national goals |
-| Scope | Personal, family, small-community relations | Relations with the nation, the people, society, and the world |
-| Core standards | Filial piety, honesty, compassion, solidarity, social order | Loyalty to the nation and devotion to the people; diligence, thrift, integrity, righteousness, absolute selflessness; love for humanity, pure international spirit |
-| Nature | Relatively stable, emphasising harmony and tradition | Combative, goal-oriented toward revolution, upholding the ideal of serving the people |
-
-Practical relevance: shaping cadres’ character and safeguarding Party prestige
-- Cadres who truly embody “diligence, thrift, integrity, righteousness, absolute selflessness,” devote themselves to the people, and match words with deeds will earn public trust and support for Party and state policies.
-- General Secretary Nguyễn Phú Trọng exemplifies ethical leadership, resolutely fighting corruption and persistently building a “pure, strong Party.”
-- The “blazing furnace” campaign disciplined over 200 high-ranking officials from 2016–2024 and exposed cases such as Việt Á, the “rescue flights,” Vạn Thịnh Phát, AIC, FLC, and Tân Hoàng Minh—demonstrating determination to curb moral decline and strengthen public confidence.
-- By prioritising revolutionary ethics and daring to “combat the bad, build the good,” the Communist Party of Vietnam maintains strength and restores trust after each transparent, public handling of violations.
-- Studying and emulating Hồ Chí Minh’s ethics, raising revolutionary morality among cadres and Party members, is vital to the Party’s survival and the nation’s sustainable development.
 `,
         },
         excerpt: {

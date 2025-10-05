@@ -176,10 +176,10 @@ export const translations = {
   },
 
   chat: {
-    title: { vietnamese: 'AI Philosophy Assistant', english: 'AI Philosophy Assistant' },
+    title: { vietnamese: 'AI Trợ lý Đạo đức Hồ Chí Minh', english: 'Ho Chi Minh Moral Philosophy AI' },
     placeholder: {
-      vietnamese: 'Hỏi về triết học...',
-      english: 'Ask about philosophy...',
+      vietnamese: 'Nhập câu hỏi hoặc nội dung bạn muốn thảo luận...',
+      english: 'Enter the question or topic you’d like to discuss...',
     },
   },
 
