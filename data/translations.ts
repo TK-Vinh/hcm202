@@ -21,6 +21,14 @@ export const translations = {
       vietnamese: 'Nền tảng học tập chuyên sâu về đạo đức cách mạng với trợ lý AI, bài viết song ngữ và quiz tương tác',
       english: 'A focused hub on revolutionary ethics with an AI assistant, bilingual articles, and interactive quizzes',
     },
+    quoteTitle: {
+      vietnamese: 'Hồ Chí Minh - tấm gương sáng ngời của nhân dân Việt Nam',
+      english: 'Hồ Chí Minh – a radiant role model of the Vietnamese people',
+    },
+    quoteSubtitle: {
+      vietnamese: 'Những câu chuyện đời thường cho thấy đức hy sinh, sự giản dị và tấm lòng yêu dân của Người.',
+      english: 'Everyday stories that show his sacrifice, simplicity, and boundless love for the people.',
+    },
     readBlog: { vietnamese: 'Nội dung', english: 'Contents' },
     takeQuiz: { vietnamese: 'Làm quiz', english: 'Take quiz' },
     roadmapTitle: {
@@ -77,6 +85,10 @@ export const translations = {
     selectBlogPrompt: {
       vietnamese: 'Vui lòng chọn một chương để bắt đầu Quiz',
       english: 'Please select a chapter to start the quiz',
+    },
+    partSelectionIntro: {
+      vietnamese: 'Chọn một phần trong tổng số {total} phần để bắt đầu làm bài.',
+      english: 'Choose one of the {total} parts to begin your attempt.',
     },
     recentResultsTitle: {
       vietnamese: 'Kết quả quiz gần đây',
@@ -139,6 +151,26 @@ export const translations = {
     },
     quizForChapter: { vietnamese: 'Quiz cho Chương', english: 'Quiz for Chapter' },
     partLabel: { vietnamese: 'Phần', english: 'Part' },
+    partOfTotal: {
+      vietnamese: 'Phần {part}/{total}',
+      english: 'Part {part} of {total}',
+    },
+    singlePart: { vietnamese: 'Toàn bộ bài', english: 'Complete quiz' },
+    startPartButton: { vietnamese: 'Bắt đầu ngay', english: 'Start now' },
+    questionsInPart: {
+      vietnamese: 'Có {count} câu hỏi',
+      english: '{count} questions',
+    },
+    partProgressSummary: {
+      vietnamese: 'Bạn đang ở phần {part}/{total} với {count} câu hỏi.',
+      english: 'You are on part {part} of {total} with {count} questions.',
+    },
+    previousPart: { vietnamese: 'Phần trước', english: 'Previous part' },
+    nextPart: { vietnamese: 'Phần tiếp theo', english: 'Next part' },
+    backToChapterParts: {
+      vietnamese: 'Quay lại danh sách phần',
+      english: 'Back to part selection',
+    },
   },
 
   chat: {
@@ -280,6 +312,42 @@ export const translations = {
     pageDescription: {
       vietnamese: 'Chúng tôi luôn sẵn sàng lắng nghe ý kiến đóng góp của bạn.',
       english: 'We are always ready to hear your suggestions.',
+    },
+    form: {
+      title: { vietnamese: 'Gửi góp ý', english: 'Share your feedback' },
+      nameLabel: { vietnamese: 'Tên bạn', english: 'Your name' },
+      emailLabel: { vietnamese: 'Email', english: 'Email' },
+      categoryLabel: { vietnamese: 'Loại góp ý', english: 'Feedback type' },
+      categoryPlaceholder: {
+        vietnamese: 'Chọn loại',
+        english: 'Choose a type',
+      },
+      categories: {
+        bug: { vietnamese: 'Lỗi/Bug', english: 'Bug' },
+        feature: { vietnamese: 'Tính năng mới', english: 'New feature' },
+        content: { vietnamese: 'Nội dung', english: 'Content' },
+        general: { vietnamese: 'Góp ý chung', english: 'General feedback' },
+      },
+      subjectLabel: { vietnamese: 'Tiêu đề', english: 'Subject' },
+      messageLabel: { vietnamese: 'Nội dung', english: 'Message' },
+      submit: { vietnamese: 'Gửi góp ý', english: 'Submit feedback' },
+      submitting: { vietnamese: 'Đang gửi...', english: 'Sending...' },
+      successTitle: {
+        vietnamese: 'Cảm ơn đã góp ý!',
+        english: 'Thank you for your feedback!',
+      },
+      successMessage: {
+        vietnamese: 'Chúng tôi sẽ phản hồi lại bạn trong thời gian sớm nhất.',
+        english: 'We will get back to you as soon as possible.',
+      },
+      successButton: {
+        vietnamese: 'Gửi thêm góp ý',
+        english: 'Send another response',
+      },
+      errorMessage: {
+        vietnamese: 'Có lỗi khi gửi, vui lòng thử lại.',
+        english: 'Something went wrong. Please try again.',
+      },
     },
   },
 
