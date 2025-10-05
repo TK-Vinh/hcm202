@@ -157,6 +157,8 @@ export const translations = {
     },
     singlePart: { vietnamese: 'Toàn bộ bài', english: 'Complete quiz' },
     startPartButton: { vietnamese: 'Bắt đầu ngay', english: 'Start now' },
+    resumePartButton: { vietnamese: 'Tiếp tục', english: 'Continue' },
+    reviewPartButton: { vietnamese: 'Xem kết quả', english: 'Review results' },
     questionsInPart: {
       vietnamese: 'Có {count} câu hỏi',
       english: '{count} questions',
