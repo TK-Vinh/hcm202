@@ -107,13 +107,13 @@ export default function HomePage() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8 animate-fade-in-up delay-600">
-                        <Button
-                            asChild
-                            size="lg"
-                            className="text-lg px-8 py-3 shadow-lg shadow-red-900/30 transition-transform duration-300 hover:scale-105 hover:shadow-red-700/40"
-                        >
-                            <Link href="/blogs">
-                                <BookOpen className="mr-2 h-5 w-5" />
+                    <Button
+                        asChild
+                        size="lg"
+                        className="text-lg px-8 py-3 shadow-lg shadow-red-900/30 transition-transform duration-300 hover:scale-105 hover:shadow-red-700/40"
+                    >
+                        <Link href="/blogs">
+                            <BookOpen className="mr-2 h-5 w-5" />
                                 {t('home.readBlog')}
                             </Link>
                         </Button>
@@ -228,7 +228,7 @@ export default function HomePage() {
                     <Button
                         variant="outline"
                         asChild
-                        className="hidden md:flex bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border-indigo-300 dark:border-indigo-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 hover:text-white transition-all duration-300 hover:scale-105"
+                        className="hidden md:flex bg-gradient-to-r from-red-100/40 via-amber-100/40 to-white/40 border border-red-300 dark:border-red-700 text-red-700 dark:text-amber-200 hover:bg-gradient-to-r hover:from-red-600 hover:via-red-500 hover:to-amber-400 hover:text-yellow-100 transition-all duration-300 hover:scale-105 shadow-sm shadow-red-900/20"
                     >
                         <Link href="/blogs">
                             {t('home.viewAll')}{' '}
@@ -245,7 +245,7 @@ export default function HomePage() {
                             style={{ animationDelay: `${index * 150}ms` }}
                         >
                             <div className="relative group">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-blue-600 to-emerald-600 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
+                                <div className="absolute -inset-1 bg-gradient-to-r from-red-700 via-red-600 to-amber-500 rounded-xl blur opacity-0 group-hover:opacity-30 transition duration-500"></div>
                                 <div className="relative">
                                     <BlogCard blog={blog} />
                                 </div>
@@ -255,7 +255,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="text-center mt-8 md:hidden animate-fade-in-up delay-600">
-                    <Button variant="outline" asChild className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 border-indigo-300 dark:border-indigo-600 hover:bg-gradient-to-r hover:from-indigo-500 hover:to-purple-500 hover:text-white transition-all duration-300">
+                    <Button variant="outline" asChild className="bg-gradient-to-r from-red-100/40 via-amber-100/40 to-white/40 border border-red-300 dark:border-red-700 text-red-700 dark:text-amber-200 hover:bg-gradient-to-r hover:from-red-600 hover:via-red-500 hover:to-amber-400 hover:text-yellow-100 transition-all duration-300 shadow-sm shadow-red-900/20">
                         <Link href="/blogs">
                             {t('home.viewAll')}{' '}
                             <ArrowRight className="ml-2 h-4 w-4" />
@@ -266,8 +266,8 @@ export default function HomePage() {
 
             {/* Enhanced Stats Section */}
             <section className="mt-20 relative animate-fade-in-up">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-blue-600/5 to-emerald-600/5 dark:from-purple-400/5 dark:via-blue-400/5 dark:to-emerald-400/5 rounded-3xl"></div>
-                <div className="relative bg-gradient-to-r from-purple-600/10 via-blue-600/10 to-emerald-600/10 dark:from-purple-400/10 dark:via-blue-400/10 dark:to-emerald-400/10 rounded-3xl p-12 border border-purple-200/50 dark:border-purple-700/50 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-gradient-to-r from-red-700/10 via-red-600/10 to-amber-500/10 dark:from-red-900/20 dark:via-red-800/20 dark:to-amber-800/15 rounded-3xl"></div>
+                <div className="relative bg-gradient-to-r from-red-700/15 via-red-600/15 to-amber-500/15 dark:from-red-900/30 dark:via-red-800/25 dark:to-amber-700/25 rounded-3xl p-12 border border-red-200/50 dark:border-red-800/50 backdrop-blur-sm shadow-lg shadow-red-900/20">
                     <div className="text-center mb-12">
                         <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
                             {t('home.statsTitle')}
@@ -279,10 +279,10 @@ export default function HomePage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         <div className="text-center group animate-fade-in-up delay-200">
-                            <div className="mx-auto w-24 h-24 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900/30 dark:to-purple-800/30 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-purple-500/50">
-                                <BookOpen className="h-12 w-12 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform duration-300" />
+                            <div className="mx-auto w-24 h-24 bg-gradient-to-br from-red-100 to-amber-100 dark:from-red-900/40 dark:to-amber-800/30 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-red-700/40">
+                                <BookOpen className="h-12 w-12 text-red-600 dark:text-amber-200 group-hover:scale-110 transition-transform duration-300" />
                             </div>
-                            <h3 className="text-5xl font-bold bg-gradient-to-r from-purple-600 to-purple-800 dark:from-purple-400 dark:to-purple-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
+                            <h3 className="text-5xl font-bold bg-gradient-to-r from-red-700 to-red-500 dark:from-red-400 dark:to-amber-300 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                                 {totalArticles}
                             </h3>
                             <p className="text-muted-foreground text-lg font-medium">
@@ -294,10 +294,10 @@ export default function HomePage() {
                         </div>
 
                         <div className="text-center group animate-fade-in-up delay-400">
-                            <div className="mx-auto w-24 h-24 bg-gradient-to-br from-blue-100 to-cyan-200 dark:from-blue-900/30 dark:to-cyan-800/30 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-blue-500/50">
-                                <Globe className="h-12 w-12 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300" />
+                            <div className="mx-auto w-24 h-24 bg-gradient-to-br from-amber-100 to-yellow-100 dark:from-red-900/40 dark:to-amber-700/35 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-amber-500/40">
+                                <Globe className="h-12 w-12 text-amber-600 dark:text-yellow-200 group-hover:scale-110 transition-transform duration-300" />
                             </div>
-                            <h3 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-cyan-800 dark:from-blue-400 dark:to-cyan-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
+                            <h3 className="text-5xl font-bold bg-gradient-to-r from-amber-500 to-yellow-500 dark:from-amber-300 dark:to-yellow-200 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                                 2
                             </h3>
                             <p className="text-muted-foreground text-lg font-medium">
@@ -309,10 +309,10 @@ export default function HomePage() {
                         </div>
 
                         <div className="text-center group animate-fade-in-up delay-600">
-                            <div className="mx-auto w-24 h-24 bg-gradient-to-br from-emerald-100 to-teal-200 dark:from-emerald-900/30 dark:to-teal-800/30 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-emerald-500/50">
-                                <Brain className="h-12 w-12 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300" />
+                            <div className="mx-auto w-24 h-24 bg-gradient-to-br from-red-100 to-amber-200 dark:from-red-900/40 dark:to-amber-800/35 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-red-700/40">
+                                <Brain className="h-12 w-12 text-red-600 dark:text-amber-200 group-hover:scale-110 transition-transform duration-300" />
                             </div>
-                            <h3 className="text-5xl font-bold bg-gradient-to-r from-emerald-600 to-teal-800 dark:from-emerald-400 dark:to-teal-600 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
+                            <h3 className="text-5xl font-bold bg-gradient-to-r from-red-700 to-amber-500 dark:from-red-400 dark:to-amber-300 bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                                 {totalQuizQuestions}
                             </h3>
                             <p className="text-muted-foreground text-lg font-medium">

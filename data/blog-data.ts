@@ -51,7 +51,7 @@ Vai trò của đạo đức
 Những phẩm chất thống nhất của con người
 - Trong tư tưởng đạo đức Hồ Chí Minh: “Đức và tài, hồng và chuyên, phẩm chất và năng lực phải thống nhất.”
 - Đạo đức là tiêu chuẩn cho mục đích hành động: Hay còn có thể nói “Hồng” là Đức vì cách nói hình tượng của Hồ Chí Minh, gắn với màu đỏ – tượng trưng cho lý tưởng cách mạng, cho lòng yêu nước, yêu chủ nghĩa xã hội, cho sự trong sáng về đạo đức. Người cán bộ “có hồng” tức là có phẩm chất chính trị, tư tưởng, đạo đức cách mạng đúng đắn.
-- Tài là phương tiện thực hiện mục đích đó: “Chuyên” = Tài, nghĩa là chuyên môn, nghiệp vụ, kỹ năng nghề nghiệp; người “có chuyên” làm việc hiệu quả, đem lại lợi ích cho tập thể, cho nhân dân.
+- Tài là phương tiện thực hiện mục đích đó: Theo cách lý giải của Hồ Chí Minh, “Chuyên” chính là Tài – toàn bộ tri thức chuyên môn, nghiệp vụ, kỹ năng nghề nghiệp của mỗi người. Người “có chuyên” làm việc hiệu quả, đem lại lợi ích cho tập thể, cho nhân dân.
 - Con người cần có cả đức và tài; thiếu tài thì làm việc gì cũng khó, nhưng thiếu đạo đức thì vô dụng, thậm chí có hại.
 `,
             english: `
@@ -100,7 +100,7 @@ The role of ethics
 Unified human qualities
 - In Hồ Chí Minh’s ethical thought: “Virtue and talent, redness and expertness, qualities and capacity must be unified.”
 - Ethics guide the purpose of action: In Hồ Chí Minh’s figurative expression, “Redness” symbolises virtue, associated with the colour red that represents revolutionary ideals, patriotism, socialism, and moral purity. A cadre “with redness” therefore embodies sound political qualities and revolutionary ethics.
-- Talent realises that purpose: “Expertness” equals ability—professional knowledge, expertise, and skills; those “with expertness” work effectively for the collective and the people.
+- Talent realises that purpose: In Hồ Chí Minh’s explanation, “Expertness” denotes ability—professional knowledge, expertise, and skills. Those “with expertness” work effectively for the collective and the people.
 - People need both virtue and talent; without talent, work is difficult, but without ethics, talent is useless or even harmful.
 `,
         },

@@ -5,7 +5,14 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useLanguage } from '@/contexts/language-context'
 import { philosophyBlogs, type ChapterId } from '@/data/philosophy-chapters'
-import { getQuizChunksForChapter, getQuizStorageKey } from '@/lib/quiz-utils'
+import {
+    getQuizChunksForChapter,
+    getQuizStorageKey,
+    parseStoredQuizPayload,
+    type QuizOverviewResult,
+    type QuizStatus,
+    type StoredQuizPayload,
+} from '@/lib/quiz-utils'
 import { ArrowRight, Heart } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import Link from 'next/link'
@@ -35,22 +42,6 @@ type QuizCardDescriptor = ChapterCard & {
     href: string
 }
 
-type QuizStatus = 'notStarted' | 'inProgress' | 'completed'
-
-type QuizOverviewResult = {
-    total: number
-    score: number
-    answered: number
-    status: QuizStatus
-}
-
-type StoredQuizPayload = Partial<{
-    currentQuestion: number
-    score: number
-    showResult: boolean
-    questionsLength: number
-}>
-
 const statusColorMap: Record<QuizStatus, string> = {
     completed: 'text-red-600 dark:text-yellow-300',
     inProgress: 'text-amber-600 dark:text-amber-300',
@@ -76,46 +67,6 @@ const chapterCards: ChapterCard[] = [
         },
     },
 ]
-
-const sanitizeStoredQuizPayload = (
-    payload: StoredQuizPayload,
-): QuizOverviewResult | null => {
-    const total = Math.max(Number(payload.questionsLength) || 0, 0)
-
-    if (total <= 0) {
-        return null
-    }
-
-    const showResult = Boolean(payload.showResult)
-    const maxIndex = Math.max(total - 1, 0)
-
-    const rawCurrent = Number(payload.currentQuestion)
-    const sanitizedCurrent = Number.isFinite(rawCurrent)
-        ? Math.min(Math.max(rawCurrent, 0), maxIndex)
-        : 0
-
-    const answered = showResult ? total : Math.min(sanitizedCurrent, total)
-
-    const rawScore = Number(payload.score)
-    const sanitizedScoreBase = Number.isFinite(rawScore) ? rawScore : 0
-    const sanitizedScore = Math.min(
-        Math.max(sanitizedScoreBase, 0),
-        showResult ? total : answered,
-    )
-
-    const status: QuizStatus = showResult
-        ? 'completed'
-        : answered > 0 || sanitizedScore > 0
-          ? 'inProgress'
-          : 'notStarted'
-
-    return {
-        total,
-        score: sanitizedScore,
-        answered,
-        status,
-    }
-}
 
 export default function QuizOverviewPage() {
     const { t, getLocalizedContent } = useLanguage()
@@ -190,7 +141,7 @@ export default function QuizOverviewPage() {
 
             try {
                 const parsed = JSON.parse(raw) as StoredQuizPayload
-                const sanitized = sanitizeStoredQuizPayload(parsed)
+                const sanitized = parseStoredQuizPayload(parsed)
 
                 if (!sanitized) {
                     window.localStorage.removeItem(storageKeyName)
@@ -355,6 +306,44 @@ export default function QuizOverviewPage() {
                                       .replace('{part}', card.partIndex.toString())
                                       .replace('{total}', card.totalParts.toString())
                                 : t('quiz.singlePart')
+                        const result = quizResults[card.storageKey]
+                        const status: QuizStatus = result?.status ?? 'notStarted'
+                        const statusLabel =
+                            status === 'completed'
+                                ? t('quiz.resultStatusCompleted')
+                                : status === 'inProgress'
+                                  ? t('quiz.resultStatusInProgress')
+                                  : t('quiz.resultStatusNotStarted')
+                        const buttonLabel =
+                            status === 'completed'
+                                ? t('quiz.reviewPartButton')
+                                : status === 'inProgress'
+                                  ? t('quiz.resumePartButton')
+                                  : t('quiz.startPartButton')
+                        const targetHref =
+                            status === 'completed'
+                                ? `${card.href}?mode=review`
+                                : status === 'inProgress'
+                                  ? `${card.href}?mode=resume`
+                                  : card.href
+                        let detailText = t('quiz.noAttemptsYet')
+
+                        if (result) {
+                            if (status === 'completed') {
+                                detailText = t('quiz.score')
+                                    .replace('{score}', result.score.toString())
+                                    .replace('{total}', result.total.toString())
+                            } else if (status === 'inProgress') {
+                                detailText = t('quiz.resultProgressCount')
+                                    .replace('{answered}', result.answered.toString())
+                                    .replace('{total}', result.total.toString())
+                            } else if (result.total > 0) {
+                                detailText = t('quiz.resultNotStartedHint').replace(
+                                    '{total}',
+                                    result.total.toString(),
+                                )
+                            }
+                        }
 
                         return (
                             <div
@@ -380,22 +369,34 @@ export default function QuizOverviewPage() {
                                     <p className="mt-4 text-muted-foreground">
                                         {getLocalizedContent(card.description)}
                                     </p>
-                                    <div className="mt-6 flex items-center justify-between gap-3">
-                                        <Button
-                                            asChild
-                                            className="transition-transform duration-300 group-hover:scale-[1.02]"
-                                        >
-                                            <Link href={card.href} className="flex items-center">
-                                                {t('quiz.startPartButton')}
-                                                <ArrowRight className="ml-2 h-4 w-4" />
-                                            </Link>
-                                        </Button>
-                                        <span className="text-sm font-medium text-red-700 dark:text-yellow-200">
-                                            {t('quiz.questionsInPart').replace(
-                                                '{count}',
-                                                card.questionsCount.toString(),
-                                            )}
-                                        </span>
+                                    <div className="mt-6 flex flex-col gap-3">
+                                        <div className="flex items-center justify-between gap-3">
+                                            <Button
+                                                asChild
+                                                className="transition-transform duration-300 group-hover:scale-[1.02]"
+                                            >
+                                                <Link href={targetHref} className="flex items-center">
+                                                    {buttonLabel}
+                                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                                </Link>
+                                            </Button>
+                                            <span className="text-sm font-medium text-red-700 dark:text-yellow-200">
+                                                {t('quiz.questionsInPart').replace(
+                                                    '{count}',
+                                                    card.questionsCount.toString(),
+                                                )}
+                                            </span>
+                                        </div>
+                                        <div className="flex flex-col gap-1 text-xs sm:flex-row sm:items-center sm:justify-between">
+                                            <span
+                                                className={`font-semibold uppercase tracking-wide ${statusColorMap[status]}`}
+                                            >
+                                                {statusLabel}
+                                            </span>
+                                            <span className="text-muted-foreground sm:text-right">
+                                                {detailText}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

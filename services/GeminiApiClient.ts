@@ -12,7 +12,7 @@ const MAX_CONTEXT_CHARS_PER_SECTION = 1800;
 const MIN_KEYWORD_LENGTH = 3;
 
 interface KnowledgeEntry {
-  id: number;
+  id: string;
   title: string;
   snippet: string;
   tokenSet: Set<string>;
@@ -53,16 +53,8 @@ const buildSnippet = (vietnamese?: string, english?: string) => {
   return `${rawSnippet.slice(0, MAX_CONTEXT_CHARS_PER_SECTION)}…`;
 };
 
-const knowledgeBase: KnowledgeEntry[] = Object.values(blogData).map((entry) => {
-  const vietnameseContent = entry.content?.vietnamese ?? '';
-  const englishContent = entry.content?.english ?? '';
-  const combinedForTokens = [
-    entry.title?.vietnamese ?? '',
-    entry.title?.english ?? '',
-    vietnameseContent,
-    englishContent,
-  ].join(' ');
-
+const buildTokenStats = (...segments: string[]) => {
+  const combinedForTokens = segments.filter(Boolean).join(' ');
   const normalized = normalizeText(combinedForTokens);
   const tokens = normalized.match(/[a-z0-9]+/g) ?? [];
 
@@ -71,16 +63,102 @@ const knowledgeBase: KnowledgeEntry[] = Object.values(blogData).map((entry) => {
     return acc;
   }, {});
 
-  const snippet = buildSnippet(vietnameseContent, englishContent);
-
   return {
-    id: entry.id,
-    title: entry.title?.vietnamese ?? entry.title?.english ?? `Mục ${entry.id}`,
-    snippet,
     tokenSet: new Set(Object.keys(tokenFrequency)),
     tokenFrequency,
   };
-});
+};
+
+const buildQuizEntries = () => {
+  const quizEntries: KnowledgeEntry[] = [];
+
+  Object.values(blogData).forEach((entry) => {
+    const vietnameseQuestions = entry.quiz?.vietnamese ?? [];
+    const englishQuestions = entry.quiz?.english ?? [];
+    const totalQuestions = Math.max(vietnameseQuestions.length, englishQuestions.length);
+
+    for (let index = 0; index < totalQuestions; index += 1) {
+      const vietnameseQuestion = vietnameseQuestions[index];
+      const englishQuestion = englishQuestions[index];
+
+      if (!vietnameseQuestion && !englishQuestion) {
+        continue;
+      }
+
+      const vietnameseAnswer =
+        vietnameseQuestion?.options?.[vietnameseQuestion.correct] ?? '';
+      const englishAnswer = englishQuestion?.options?.[englishQuestion.correct] ?? '';
+
+      const vietnameseSegment = vietnameseQuestion
+        ? [
+            `Câu hỏi: ${vietnameseQuestion.question}`,
+            vietnameseQuestion.options?.length
+              ? `Các đáp án: ${vietnameseQuestion.options.join('; ')}`
+              : undefined,
+            vietnameseAnswer ? `Đáp án đúng: ${vietnameseAnswer}` : undefined,
+          ]
+            .filter(Boolean)
+            .join('\n')
+        : undefined;
+
+      const englishSegment = englishQuestion
+        ? [
+            `Question: ${englishQuestion.question}`,
+            englishQuestion.options?.length
+              ? `Options: ${englishQuestion.options.join('; ')}`
+              : undefined,
+            englishAnswer ? `Correct answer: ${englishAnswer}` : undefined,
+          ]
+            .filter(Boolean)
+            .join('\n')
+        : undefined;
+
+      const snippet = buildSnippet(vietnameseSegment, englishSegment);
+      const { tokenSet, tokenFrequency } = buildTokenStats(
+        entry.title?.vietnamese ?? '',
+        entry.title?.english ?? '',
+        vietnameseSegment ?? '',
+        englishSegment ?? ''
+      );
+
+      const baseVietnameseTitle = entry.title?.vietnamese ?? entry.title?.english ?? `Mục ${entry.id}`;
+      const baseEnglishTitle = entry.title?.english ?? entry.title?.vietnamese ?? `Section ${entry.id}`;
+
+      quizEntries.push({
+        id: `quiz-${entry.id}-${index}`,
+        title: `[Quiz] ${baseVietnameseTitle} / ${baseEnglishTitle} – Câu hỏi ${index + 1}`,
+        snippet,
+        tokenSet,
+        tokenFrequency,
+      });
+    }
+  });
+
+  return quizEntries;
+};
+
+const knowledgeBase: KnowledgeEntry[] = [
+  ...Object.values(blogData).map((entry) => {
+    const vietnameseContent = entry.content?.vietnamese ?? '';
+    const englishContent = entry.content?.english ?? '';
+    const snippet = buildSnippet(vietnameseContent, englishContent);
+    const { tokenSet, tokenFrequency } = buildTokenStats(
+      entry.title?.vietnamese ?? '',
+      entry.title?.english ?? '',
+      vietnameseContent,
+      englishContent
+    );
+
+    return {
+      id: `blog-${entry.id}`,
+      title: entry.title?.vietnamese ?? entry.title?.english ?? `Mục ${entry.id}`,
+      snippet,
+      tokenSet,
+      tokenFrequency,
+    };
+  }),
+  ...buildQuizEntries(),
+];
 
 const CONTEXT_PROMPT_PREFIX = [
   'Bạn sẽ nhận được một số đoạn trích từ tài liệu nội bộ do người dùng cung cấp.',

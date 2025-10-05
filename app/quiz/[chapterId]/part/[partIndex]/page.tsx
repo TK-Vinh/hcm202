@@ -2,7 +2,7 @@
 
 import { use, useMemo } from 'react'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, useSearchParams } from 'next/navigation'
 
 import { Quiz } from '@/components/quiz'
 import { Button } from '@/components/ui/button'
@@ -26,6 +26,7 @@ export default function QuizPartPage({ params }: QuizPartPageProps) {
 
     const { chapterId, partIndex } = use(paramsPromise)
     const { t, getLocalizedContent, currentLanguage } = useLanguage()
+    const searchParams = useSearchParams()
 
     const typedChapterId = chapterId as ChapterId
     const chapter = philosophyBlogs[typedChapterId]
@@ -50,6 +51,14 @@ export default function QuizPartPage({ params }: QuizPartPageProps) {
     if (!chunk) {
         notFound()
     }
+
+    const modeParam = searchParams.get('mode')
+    const quizMode =
+        modeParam === 'review'
+            ? 'review'
+            : modeParam === 'resume'
+              ? 'resume'
+              : undefined
 
     const questionsForLanguage =
         chunk.questions[currentLanguage].length > 0
@@ -99,7 +108,11 @@ export default function QuizPartPage({ params }: QuizPartPageProps) {
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
-                    <Quiz questions={questionsForLanguage} storageKey={storageKey} />
+                    <Quiz
+                        questions={questionsForLanguage}
+                        storageKey={storageKey}
+                        mode={quizMode}
+                    />
                 </CardContent>
             </Card>
 

@@ -14,6 +14,22 @@ export type QuizChunk = {
   questions: Record<Language, QuizQuestion[]>
 }
 
+export type QuizStatus = "notStarted" | "inProgress" | "completed"
+
+export type QuizOverviewResult = {
+  total: number
+  score: number
+  answered: number
+  status: QuizStatus
+}
+
+export type StoredQuizPayload = Partial<{
+  currentQuestion: number
+  score: number
+  showResult: boolean
+  questionsLength: number
+}>
+
 export const getQuizChunksForChapter = (
   chapterId: ChapterId,
 ): QuizChunk[] => {
@@ -74,3 +90,43 @@ export const getQuizChunksForChapter = (
 
 export const getQuizStorageKey = (chapterId: ChapterId, partIndex: number) =>
   `${chapterId}-part-${partIndex}`
+
+export const parseStoredQuizPayload = (
+  payload: StoredQuizPayload,
+): QuizOverviewResult | null => {
+  const total = Math.max(Number(payload.questionsLength) || 0, 0)
+
+  if (total <= 0) {
+    return null
+  }
+
+  const showResult = Boolean(payload.showResult)
+  const maxIndex = Math.max(total - 1, 0)
+
+  const rawCurrent = Number(payload.currentQuestion)
+  const sanitizedCurrent = Number.isFinite(rawCurrent)
+    ? Math.min(Math.max(rawCurrent, 0), maxIndex)
+    : 0
+
+  const answered = showResult ? total : Math.min(sanitizedCurrent, total)
+
+  const rawScore = Number(payload.score)
+  const sanitizedScoreBase = Number.isFinite(rawScore) ? rawScore : 0
+  const sanitizedScore = Math.min(
+    Math.max(sanitizedScoreBase, 0),
+    showResult ? total : answered,
+  )
+
+  const status: QuizStatus = showResult
+    ? "completed"
+    : answered > 0 || sanitizedScore > 0
+      ? "inProgress"
+      : "notStarted"
+
+  return {
+    total,
+    score: sanitizedScore,
+    answered,
+    status,
+  }
+}
